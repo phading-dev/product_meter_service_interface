@@ -1,0 +1,45 @@
+[{
+  "name": "SizeTimeMeterPerApp",
+  "message": {
+    "fields": [{
+      "name": "appType",
+      "type": "AppType",
+      "import": "@phading/product_service_interface/app_type"
+    }, {
+      "name": "sizeTime",
+      "type": "number"
+    }]
+  }
+}, {
+  "name": "SizeTimeMeterReport",
+  "message": {
+    "fields": [{
+      "name": "totalSizeTime",
+      "type": "number"
+    }, {
+      "name": "sizeTimeMetersPerApp",
+      "type": "SizeTimeMeterPerApp",
+      "isArray": true
+    }, {
+      "name": "startTimestamp",
+      "type": "number"
+    }, {
+      "name": "endTimestamp",
+      "type": "number"
+    }]
+  }
+}, {
+  "name": "SizeTimeMeterReportRange",
+  "message": {
+    "fields": [{
+      "name": "reportId",
+      "type": "string"
+    }, {
+      "name": "startTimestamp",
+      "type": "number"
+    }, {
+      "name": "endTimestamp",
+      "type": "number"
+    }]
+  }
+}]

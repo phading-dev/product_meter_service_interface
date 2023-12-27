@@ -1,0 +1,92 @@
+[{
+  "name": "GetPlaytimeMeterReportRequestBody",
+  "message": {
+    "fields": [{
+      "name": "reportId",
+      "type": "string",
+      "comment": "If absent, return the current report. Otherwise, return the corresponding historical report."
+    }]
+  }
+}, {
+  "name": "GetPlaytimeMeterReportResponse",
+  "message": {
+    "fields": [{
+      "name" : "playtimeMeterReport",
+      "type": "PlaytimeMeterReport",
+      "import": "./playtime_meter_report"
+    }]
+  }
+}, {
+  "name": "GetPlaytimeMeterReport",
+  "service": {
+    "path": "/GetPlaytimeMeterReport",
+    "body": "GetPlaytimeMeterReportRequestBody",
+    "auth": {
+      "key": "auth",
+      "type": "WebClientSession",
+      "import": "@phading/user_session_service_interface/web_client_session"
+    },
+    "response": "GetPlaytimeMeterReportResponse",
+    "outputWebClient": "./client_requests",
+    "outputHandler": "./server_handlers"
+  }
+}, {
+  "name": "ListHistoryPlaytimeMeterReportsRequestBody",
+  "message": {
+    "fields": []
+  }
+}, {
+  "name": "ListHistoryPlaytimeMeterReportsResponse",
+  "message": {
+    "fields": [{
+      "name" : "playtimeMeterReportRanges",
+      "type": "PlaytimeMeterReportRange",
+      "import": "./playtime_meter_report",
+      "isArray": true
+    }]
+  }
+}, {
+  "name": "ListHistoryPlaytimeMeterReports",
+  "service": {
+    "path": "/ListHistoryPlaytimeMeterReports",
+    "body": "ListHistoryPlaytimeMeterReportsRequestBody",
+    "auth": {
+      "key": "auth",
+      "type": "WebClientSession",
+      "import": "@phading/user_session_service_interface/web_client_session"
+    },
+    "response": "ListHistoryPlaytimeMeterReportsResponse",
+    "outputWebClient": "./client_requests",
+    "outputHandler": "./server_handlers"
+  }
+}, {
+  "name": "IncrementPlaytimeRequestBody",
+  "message": {
+    "fields": [{
+      "name": "productId",
+      "type": "string"
+    }, {
+      "name": "playtime",
+      "type": "number"
+    }]
+  }
+}, {
+  "name": "IncrementPlaytimeResponse",
+  "message": {
+    "fields": []
+  }
+}, {
+  "name": "IncrementPlaytime",
+  "service": {
+    "path": "/IncrementPlaytime",
+    "body": "IncrementPlaytimeRequestBody",
+    "auth": {
+      "key": "auth",
+      "type": "WebClientSession",
+      "import": "@phading/user_session_service_interface/web_client_session"
+    },
+    "response": "IncrementPlaytimeResponse",
+    "outputWebClient": "./client_requests",
+    "outputHandler": "./server_handlers"
+  }
+}]
