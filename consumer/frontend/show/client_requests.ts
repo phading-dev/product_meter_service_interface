@@ -1,14 +1,14 @@
 import { WebServiceClientInterface, WebServiceClientOptions } from '@selfage/service_descriptor/web_service_client_interface';
-import { SyncProductMeterRequestBody, SyncProductMeterResponse, SYNC_PRODUCT_METER } from './interface';
+import { SyncMeterReadingRequestBody, SyncMeterReadingResponse, SYNC_METER_READING } from './interface';
 
-export function syncProductMeter(
+export function syncMeterReading(
   client: WebServiceClientInterface,
-  body: SyncProductMeterRequestBody,
+  body: SyncMeterReadingRequestBody,
   options?: WebServiceClientOptions,
-): Promise<SyncProductMeterResponse> {
+): Promise<SyncMeterReadingResponse> {
   return client.send(
     {
-      descriptor: SYNC_PRODUCT_METER,
+      descriptor: SYNC_METER_READING,
       body,
     },
     options,
