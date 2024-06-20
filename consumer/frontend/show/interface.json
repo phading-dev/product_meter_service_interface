@@ -5,9 +5,9 @@
       "name": "seasonId",
       "type": "string"
     }, {
-      "name": "watchTime",
+      "name": "watchTimeMs",
       "type": "number",
-      "comment": "Incremented seconds."
+      "comment": "Incremented milliseconds."
     }]
   }
 }, {

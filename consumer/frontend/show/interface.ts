@@ -4,8 +4,8 @@ import { CLIENT_SESSION } from '@phading/user_session_service_interface/client_s
 
 export interface SyncMeterReadingRequestBody {
   seasonId?: string,
-/* Incremented seconds. */
-  watchTime?: number,
+/* Incremented milliseconds. */
+  watchTimeMs?: number,
 }
 
 export let SYNC_METER_READING_REQUEST_BODY: MessageDescriptor<SyncMeterReadingRequestBody> = {
@@ -16,7 +16,7 @@ export let SYNC_METER_READING_REQUEST_BODY: MessageDescriptor<SyncMeterReadingRe
       primitiveType: PrimitiveType.STRING,
     },
     {
-      name: 'watchTime',
+      name: 'watchTimeMs',
       primitiveType: PrimitiveType.NUMBER,
     },
   ]
