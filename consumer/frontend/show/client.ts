@@ -1,10 +1,10 @@
-import { WebServiceClientInterface, WebServiceClientOptions } from '@selfage/service_descriptor/web_service_client_interface';
 import { SyncMeterReadingRequestBody, SyncMeterReadingResponse, SYNC_METER_READING } from './interface';
+import { WebClientInterface, WebClientOptions } from '@selfage/service_descriptor/client_interface';
 
 export function syncMeterReading(
-  client: WebServiceClientInterface,
+  client: WebClientInterface,
   body: SyncMeterReadingRequestBody,
-  options?: WebServiceClientOptions,
+  options?: WebClientOptions,
 ): Promise<SyncMeterReadingResponse> {
   return client.send(
     {
