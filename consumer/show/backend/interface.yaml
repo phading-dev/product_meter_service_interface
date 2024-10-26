@@ -1,0 +1,58 @@
+- message:
+    name: DateAndAccount
+    fields:
+      - name: date # ISO string of date without timezone.
+        type: string
+        index: 1
+      - name: accountId
+        type: string
+        index: 2
+- message:
+    name: GetDailyBatchRequestBody
+    fields:
+      - name: cursor
+        type: string
+        index: 1
+- message:
+    name: GetDailyBatchResponse
+    fields:
+      - name: dateAndAccounts
+        type: DateAndAccount
+        isArray: true
+        index: 1
+      - name: cursor
+        type: string
+        index: 2
+- message:
+    name: AggregateDailyMeterReadingRequestBody
+    fields: 
+      - name: dateAndAccount
+        type: DateAndAccount
+        index: 1
+- message:
+    name: AggregateDailyMeterReadingResponse
+- message:
+    name: GetUnprocessedDateRequestBody
+- message:
+    name: GetUnprocessedDateResponse
+    fields:
+      - name: date # ISO string of date without timezone.
+        type: string
+        index: 1
+- nodeService:
+    name: ProductMeterConsumerShowBackendService
+    remoteCalls:
+      - name: GetDailyBatch
+        path: /GetDailyBatch
+        body: GetDailyBatchRequestBody
+        response: GetDailyBatchResponse
+      - name: AggregateDailyMeterReading
+        path: /AggregateDailyMeterReading
+        body: AggregateDailyMeterReadingRequestBody
+        response: AggregateDailyMeterReadingResponse
+      - name: GetUnprocessedDate
+        path: /GetUnprocessedDate
+        body: GetUnprocessedDateRequestBody
+        response: GetUnprocessedDateResponse
+    outputClient: ./consumer/show/backend/client
+    outputHandler: ./consumer/show/backend/handler

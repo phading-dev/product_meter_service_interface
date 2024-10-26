@@ -1,0 +1,50 @@
+- message:
+    name: EpisodeSummary
+    fields:
+      - name: seasonId
+        type: string
+        index: 1
+      - name: episodeId
+        type: string
+        index: 2
+      - name: seasonName
+        type: string
+        index: 3
+      - name: episodeName
+        type: string
+        index: 4
+- message:
+    name: MeterReadingPerEpisode
+    fields:
+      - name: episode
+        type: EpisodeSummary
+        index: 1
+      - name: watchTimeMs
+        type: number
+        index: 2
+- message:
+    name: MeterReadingPerDay
+    fields:
+      - name: timezone # UTC offsets in the format "±hh".
+        type: string
+        index: 1
+      - name: date # Timestamp of the start of the date in the timezone
+        type: number
+        index: 2
+      - name: amount
+        type: Money
+        import: ./money
+        index: 3
+- message:
+    name: MeterReadingPerMonth
+    fields:
+      - name: timezone # UTC offsets in the format "±hh".
+        type: string
+        index: 1
+      - name: month # Timestamp of the start of the month in the timezone
+        type: number
+        index: 2
+      - name: amount
+        type: Money
+        import: ./money
+        index: 3

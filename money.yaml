@@ -1,0 +1,9 @@
+- message:
+    name: Money
+    fields:
+      - name: currency # ISO currency code
+        type: string
+        index: 1
+      - name: amount # An integer in smallest curerncy unit, e.g., cents in USD. 
+        type: number
+        index: 2

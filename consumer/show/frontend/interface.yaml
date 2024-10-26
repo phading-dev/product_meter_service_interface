@@ -1,0 +1,87 @@
+- message:
+    name: SyncMeterReadingRequestBody
+    fields:
+      - name: seasonId
+        type: string
+        index: 1
+      - name: episodeId
+        type: string
+        index: 2
+      - name: watchTimeMs # ms
+        type: number
+        index: 3
+- message:
+    name: SyncMeterReadingResponse
+- message:
+    name: ListMeterReadingPerEpisodeRequestBody
+    fields:
+      - name: date # UTC timestamp of the date.
+        type: number
+        index: 1
+- message:
+    name: ListMeterReadingPerEpisodeResponse
+    fields:
+      - name: readings
+        type: MeterReadingPerEpisode
+        import: ./consumer/show/frontend/meter_reading
+        isArray: true
+        index: 1
+- message:
+    name: ListMeterReadingsPerDayRequestBody
+    fields:
+      - name: startDate # UTC timestamp of the date.
+        type: number
+        index: 1
+      - name: endDate # UTC timestamp of the date. Inclusive.
+        type: number
+        index: 2
+- message:
+    name: ListMeterReadingsPerDayResponse
+    fields:
+      - name: readings
+        type: MeterReadingPerDay
+        import: ./consumer/show/frontend/meter_reading
+        isArray: true
+        index: 1
+- message:
+    name: ListMeterReadingsPerMonthRequestBody
+    fields:
+      - name: startMonth # UTC timestamp of the month.
+        type: number
+        index: 1
+      - name: endMonth # UTC timestamp of the month. Inclusive.
+        type: number
+        index: 2
+- message:
+    name: ListMeterReadingsPerMonthResponse
+    fields:
+      - name: readings
+        type: MeterReadingPerMonth
+        import: ./consumer/show/frontend/meter_reading
+        isArray: true
+        index: 1
+- webService:
+    name: ProductMeterConsumerShowFrontendService
+    remoteCalls:
+      - name: SyncMeterReading
+        path: /SyncMeterReading
+        body: SyncMeterReadingRequestBody
+        sessionKey: sk
+        response: SyncMeterReadingResponse
+      - name: ListMeterReadingPerEpisode
+        path: /ListMeterReadingPerEpisode
+        body: ListMeterReadingPerEpisodeRequestBody
+        sessionKey: sk
+        response: ListMeterReadingPerEpisodeResponse
+      - name: ListMeterReadingsPerDay
+        path: /ListMeterReadingsPerDay
+        body: ListMeterReadingsPerDayRequestBody
+        sessionKey: sk
+        response: ListMeterReadingsPerDayResponse
+      - name: ListMeterReadingsPerMonth
+        path: /ListMeterReadingsPerMonth
+        body: ListMeterReadingsPerMonthRequestBody
+        sessionKey: sk
+        response: ListMeterReadingsPerMonthResponse
+    outputClient: ./consumer/show/frontend/client
+    outputHandler: ./consumer/show/frontend/handler
