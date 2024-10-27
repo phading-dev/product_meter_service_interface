@@ -1,48 +1,35 @@
 import { PrimitiveType, MessageDescriptor } from '@selfage/message/descriptor';
 import { NodeRemoteCallDescriptor } from '@selfage/service_descriptor';
 
-export interface DateAndAccount {
-  date?: string,
-  accountId?: string,
-}
-
-export let DATE_AND_ACCOUNT: MessageDescriptor<DateAndAccount> = {
-  name: 'DateAndAccount',
-  fields: [{
-    name: 'date',
-    index: 1,
-    primitiveType: PrimitiveType.STRING,
-  }, {
-    name: 'accountId',
-    index: 2,
-    primitiveType: PrimitiveType.STRING,
-  }],
-};
-
 export interface GetDailyBatchRequestBody {
+  limit?: number,
   cursor?: string,
 }
 
 export let GET_DAILY_BATCH_REQUEST_BODY: MessageDescriptor<GetDailyBatchRequestBody> = {
   name: 'GetDailyBatchRequestBody',
   fields: [{
-    name: 'cursor',
+    name: 'limit',
     index: 1,
+    primitiveType: PrimitiveType.NUMBER,
+  }, {
+    name: 'cursor',
+    index: 2,
     primitiveType: PrimitiveType.STRING,
   }],
 };
 
 export interface GetDailyBatchResponse {
-  dateAndAccounts?: Array<DateAndAccount>,
+  rowKeys?: Array<string>,
   cursor?: string,
 }
 
 export let GET_DAILY_BATCH_RESPONSE: MessageDescriptor<GetDailyBatchResponse> = {
   name: 'GetDailyBatchResponse',
   fields: [{
-    name: 'dateAndAccounts',
+    name: 'rowKeys',
     index: 1,
-    messageType: DATE_AND_ACCOUNT,
+    primitiveType: PrimitiveType.STRING,
     isArray: true,
   }, {
     name: 'cursor',
@@ -51,24 +38,24 @@ export let GET_DAILY_BATCH_RESPONSE: MessageDescriptor<GetDailyBatchResponse> = 
   }],
 };
 
-export interface AggregateDailyMeterReadingRequestBody {
-  dateAndAccount?: DateAndAccount,
+export interface ProcessDailyMeterReadingRequestBody {
+  rowKey?: string,
 }
 
-export let AGGREGATE_DAILY_METER_READING_REQUEST_BODY: MessageDescriptor<AggregateDailyMeterReadingRequestBody> = {
-  name: 'AggregateDailyMeterReadingRequestBody',
+export let PROCESS_DAILY_METER_READING_REQUEST_BODY: MessageDescriptor<ProcessDailyMeterReadingRequestBody> = {
+  name: 'ProcessDailyMeterReadingRequestBody',
   fields: [{
-    name: 'dateAndAccount',
+    name: 'rowKey',
     index: 1,
-    messageType: DATE_AND_ACCOUNT,
+    primitiveType: PrimitiveType.STRING,
   }],
 };
 
-export interface AggregateDailyMeterReadingResponse {
+export interface ProcessDailyMeterReadingResponse {
 }
 
-export let AGGREGATE_DAILY_METER_READING_RESPONSE: MessageDescriptor<AggregateDailyMeterReadingResponse> = {
-  name: 'AggregateDailyMeterReadingResponse',
+export let PROCESS_DAILY_METER_READING_RESPONSE: MessageDescriptor<ProcessDailyMeterReadingResponse> = {
+  name: 'ProcessDailyMeterReadingResponse',
   fields: [],
 };
 
@@ -104,14 +91,14 @@ export let GET_DAILY_BATCH: NodeRemoteCallDescriptor = {
   },
 }
 
-export let AGGREGATE_DAILY_METER_READING: NodeRemoteCallDescriptor = {
-  name: "AggregateDailyMeterReading",
-  path: "/AggregateDailyMeterReading",
+export let PROCESS_DAILY_METER_READING: NodeRemoteCallDescriptor = {
+  name: "ProcessDailyMeterReading",
+  path: "/ProcessDailyMeterReading",
   body: {
-    messageType: AGGREGATE_DAILY_METER_READING_REQUEST_BODY,
+    messageType: PROCESS_DAILY_METER_READING_REQUEST_BODY,
   },
   response: {
-    messageType: AGGREGATE_DAILY_METER_READING_RESPONSE,
+    messageType: PROCESS_DAILY_METER_READING_RESPONSE,
   },
 }
 
