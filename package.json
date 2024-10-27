@@ -1,6 +1,6 @@
 {
   "name": "@phading/product_meter_service_interface",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "The interface of ProductMeterService.",
   "repository": {
     "type": "git",

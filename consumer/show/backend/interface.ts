@@ -19,12 +19,12 @@ export let DATE_AND_ACCOUNT: MessageDescriptor<DateAndAccount> = {
   }],
 };
 
-export interface GetBatchRequestBody {
+export interface GetDailyBatchRequestBody {
   cursor?: string,
 }
 
-export let GET_BATCH_REQUEST_BODY: MessageDescriptor<GetBatchRequestBody> = {
-  name: 'GetBatchRequestBody',
+export let GET_DAILY_BATCH_REQUEST_BODY: MessageDescriptor<GetDailyBatchRequestBody> = {
+  name: 'GetDailyBatchRequestBody',
   fields: [{
     name: 'cursor',
     index: 1,
@@ -32,13 +32,13 @@ export let GET_BATCH_REQUEST_BODY: MessageDescriptor<GetBatchRequestBody> = {
   }],
 };
 
-export interface GetBatchResponse {
+export interface GetDailyBatchResponse {
   dateAndAccounts?: Array<DateAndAccount>,
   cursor?: string,
 }
 
-export let GET_BATCH_RESPONSE: MessageDescriptor<GetBatchResponse> = {
-  name: 'GetBatchResponse',
+export let GET_DAILY_BATCH_RESPONSE: MessageDescriptor<GetDailyBatchResponse> = {
+  name: 'GetDailyBatchResponse',
   fields: [{
     name: 'dateAndAccounts',
     index: 1,
@@ -51,12 +51,12 @@ export let GET_BATCH_RESPONSE: MessageDescriptor<GetBatchResponse> = {
   }],
 };
 
-export interface AggregateMeterReadingRequestBody {
+export interface AggregateDailyMeterReadingRequestBody {
   dateAndAccount?: DateAndAccount,
 }
 
-export let AGGREGATE_METER_READING_REQUEST_BODY: MessageDescriptor<AggregateMeterReadingRequestBody> = {
-  name: 'AggregateMeterReadingRequestBody',
+export let AGGREGATE_DAILY_METER_READING_REQUEST_BODY: MessageDescriptor<AggregateDailyMeterReadingRequestBody> = {
+  name: 'AggregateDailyMeterReadingRequestBody',
   fields: [{
     name: 'dateAndAccount',
     index: 1,
@@ -64,11 +64,11 @@ export let AGGREGATE_METER_READING_REQUEST_BODY: MessageDescriptor<AggregateMete
   }],
 };
 
-export interface AggregateMeterReadingResponse {
+export interface AggregateDailyMeterReadingResponse {
 }
 
-export let AGGREGATE_METER_READING_RESPONSE: MessageDescriptor<AggregateMeterReadingResponse> = {
-  name: 'AggregateMeterReadingResponse',
+export let AGGREGATE_DAILY_METER_READING_RESPONSE: MessageDescriptor<AggregateDailyMeterReadingResponse> = {
+  name: 'AggregateDailyMeterReadingResponse',
   fields: [],
 };
 
@@ -93,25 +93,25 @@ export let GET_UNPROCESSED_DATE_RESPONSE: MessageDescriptor<GetUnprocessedDateRe
   }],
 };
 
-export let GET_BATCH: NodeRemoteCallDescriptor = {
-  name: "GetBatch",
-  path: "/GetBatch",
+export let GET_DAILY_BATCH: NodeRemoteCallDescriptor = {
+  name: "GetDailyBatch",
+  path: "/GetDailyBatch",
   body: {
-    messageType: GET_BATCH_REQUEST_BODY,
+    messageType: GET_DAILY_BATCH_REQUEST_BODY,
   },
   response: {
-    messageType: GET_BATCH_RESPONSE,
+    messageType: GET_DAILY_BATCH_RESPONSE,
   },
 }
 
-export let AGGREGATE_METER_READING: NodeRemoteCallDescriptor = {
-  name: "AggregateMeterReading",
-  path: "/AggregateMeterReading",
+export let AGGREGATE_DAILY_METER_READING: NodeRemoteCallDescriptor = {
+  name: "AggregateDailyMeterReading",
+  path: "/AggregateDailyMeterReading",
   body: {
-    messageType: AGGREGATE_METER_READING_REQUEST_BODY,
+    messageType: AGGREGATE_DAILY_METER_READING_REQUEST_BODY,
   },
   response: {
-    messageType: AGGREGATE_METER_READING_RESPONSE,
+    messageType: AGGREGATE_DAILY_METER_READING_RESPONSE,
   },
 }
 
