@@ -1,4 +1,4 @@
-import { GetDailyBatchRequestBody, GET_DAILY_BATCH, GetDailyBatchResponse, ProcessDailyMeterReadingRequestBody, PROCESS_DAILY_METER_READING, ProcessDailyMeterReadingResponse, GetUnprocessedDateRequestBody, GET_UNPROCESSED_DATE, GetUnprocessedDateResponse } from './interface';
+import { GetDailyBatchRequestBody, GET_DAILY_BATCH, GetDailyBatchResponse, ProcessDailyMeterReadingRequestBody, PROCESS_DAILY_METER_READING, ProcessDailyMeterReadingResponse } from './interface';
 import { NodeHandlerInterface } from '@selfage/service_descriptor/handler_interface';
 
 export abstract class GetDailyBatchHandlerInterface implements NodeHandlerInterface {
@@ -15,12 +15,4 @@ export abstract class ProcessDailyMeterReadingHandlerInterface implements NodeHa
     loggingPrefix: string,
     body: ProcessDailyMeterReadingRequestBody,
   ): Promise<ProcessDailyMeterReadingResponse>;
-}
-
-export abstract class GetUnprocessedDateHandlerInterface implements NodeHandlerInterface {
-  public descriptor = GET_UNPROCESSED_DATE;
-  public abstract handle(
-    loggingPrefix: string,
-    body: GetUnprocessedDateRequestBody,
-  ): Promise<GetUnprocessedDateResponse>;
 }

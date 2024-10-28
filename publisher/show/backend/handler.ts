@@ -1,4 +1,4 @@
-import { GetDailyBatchRequestBody, GET_DAILY_BATCH, GetDailyBatchResponse, AggregateDailyMeterReadingRequestBody, AGGREGATE_DAILY_METER_READING, AggregateDailyMeterReadingResponse } from './interface';
+import { GetDailyBatchRequestBody, GET_DAILY_BATCH, GetDailyBatchResponse, ProcessDailyMeterReadingRequestBody, PROCESS_DAILY_METER_READING, ProcessDailyMeterReadingResponse } from './interface';
 import { NodeHandlerInterface } from '@selfage/service_descriptor/handler_interface';
 
 export abstract class GetDailyBatchHandlerInterface implements NodeHandlerInterface {
@@ -9,10 +9,10 @@ export abstract class GetDailyBatchHandlerInterface implements NodeHandlerInterf
   ): Promise<GetDailyBatchResponse>;
 }
 
-export abstract class AggregateDailyMeterReadingHandlerInterface implements NodeHandlerInterface {
-  public descriptor = AGGREGATE_DAILY_METER_READING;
+export abstract class ProcessDailyMeterReadingHandlerInterface implements NodeHandlerInterface {
+  public descriptor = PROCESS_DAILY_METER_READING;
   public abstract handle(
     loggingPrefix: string,
-    body: AggregateDailyMeterReadingRequestBody,
-  ): Promise<AggregateDailyMeterReadingResponse>;
+    body: ProcessDailyMeterReadingRequestBody,
+  ): Promise<ProcessDailyMeterReadingResponse>;
 }

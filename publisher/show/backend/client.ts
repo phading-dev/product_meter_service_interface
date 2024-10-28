@@ -1,4 +1,4 @@
-import { GetDailyBatchRequestBody, GetDailyBatchResponse, GET_DAILY_BATCH, AggregateDailyMeterReadingRequestBody, AggregateDailyMeterReadingResponse, AGGREGATE_DAILY_METER_READING } from './interface';
+import { GetDailyBatchRequestBody, GetDailyBatchResponse, GET_DAILY_BATCH, ProcessDailyMeterReadingRequestBody, ProcessDailyMeterReadingResponse, PROCESS_DAILY_METER_READING } from './interface';
 import { NodeClientInterface, NodeClientOptions } from '@selfage/service_descriptor/client_interface';
 
 export function getDailyBatch(
@@ -15,14 +15,14 @@ export function getDailyBatch(
   );
 }
 
-export function aggregateDailyMeterReading(
+export function processDailyMeterReading(
   client: NodeClientInterface,
-  body: AggregateDailyMeterReadingRequestBody,
+  body: ProcessDailyMeterReadingRequestBody,
   options?: NodeClientOptions,
-): Promise<AggregateDailyMeterReadingResponse> {
+): Promise<ProcessDailyMeterReadingResponse> {
   return client.send(
     {
-      descriptor: AGGREGATE_DAILY_METER_READING,
+      descriptor: PROCESS_DAILY_METER_READING,
       body,
     },
     options,

@@ -59,27 +59,6 @@ export let PROCESS_DAILY_METER_READING_RESPONSE: MessageDescriptor<ProcessDailyM
   fields: [],
 };
 
-export interface GetUnprocessedDateRequestBody {
-}
-
-export let GET_UNPROCESSED_DATE_REQUEST_BODY: MessageDescriptor<GetUnprocessedDateRequestBody> = {
-  name: 'GetUnprocessedDateRequestBody',
-  fields: [],
-};
-
-export interface GetUnprocessedDateResponse {
-  date?: string,
-}
-
-export let GET_UNPROCESSED_DATE_RESPONSE: MessageDescriptor<GetUnprocessedDateResponse> = {
-  name: 'GetUnprocessedDateResponse',
-  fields: [{
-    name: 'date',
-    index: 1,
-    primitiveType: PrimitiveType.STRING,
-  }],
-};
-
 export let GET_DAILY_BATCH: NodeRemoteCallDescriptor = {
   name: "GetDailyBatch",
   path: "/GetDailyBatch",
@@ -99,16 +78,5 @@ export let PROCESS_DAILY_METER_READING: NodeRemoteCallDescriptor = {
   },
   response: {
     messageType: PROCESS_DAILY_METER_READING_RESPONSE,
-  },
-}
-
-export let GET_UNPROCESSED_DATE: NodeRemoteCallDescriptor = {
-  name: "GetUnprocessedDate",
-  path: "/GetUnprocessedDate",
-  body: {
-    messageType: GET_UNPROCESSED_DATE_REQUEST_BODY,
-  },
-  response: {
-    messageType: GET_UNPROCESSED_DATE_RESPONSE,
   },
 }

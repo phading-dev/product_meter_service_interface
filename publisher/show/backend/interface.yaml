@@ -1,36 +1,30 @@
 - message:
-    name: DateAndAccount
+    name: GetDailyBatchRequestBody
     fields:
-      - name: date # ISO string of date without timezone.
-        type: string
+      - name: limit
+        type: number
         index: 1
-      - name: accountId
+      - name: cursor
         type: string
         index: 2
 - message:
-    name: GetDailyBatchRequestBody
-    fields:
-      - name: cursor
-        type: string
-        index: 1
-- message:
     name: GetDailyBatchResponse
     fields:
-      - name: dateAndAccounts
-        type: DateAndAccount
+      - name: rowKeys
+        type: string
         isArray: true
         index: 1
       - name: cursor
         type: string
         index: 2
 - message:
-    name: AggregateDailyMeterReadingRequestBody
+    name: ProcessDailyMeterReadingRequestBody
     fields: 
-      - name: dateAndAccount
-        type: DateAndAccount
+      - name: rowKey
+        type: string
         index: 1
 - message:
-    name: AggregateDailyMeterReadingResponse
+    name: ProcessDailyMeterReadingResponse
 - nodeService:
     name: ProductMeterPublisherShowBackendService
     remoteCalls:
@@ -38,9 +32,9 @@
         path: /GetDailyBatch
         body: GetDailyBatchRequestBody
         response: GetDailyBatchResponse
-      - name: AggregateDailyMeterReading
-        path: /AggregateDailyMeterReading
-        body: AggregateDailyMeterReadingRequestBody
-        response: AggregateDailyMeterReadingResponse
+      - name: ProcessDailyMeterReading
+        path: /ProcessDailyMeterReading
+        body: ProcessDailyMeterReadingRequestBody
+        response: ProcessDailyMeterReadingResponse
     outputClient: ./publisher/show/backend/client
     outputHandler: ./publisher/show/backend/handler

@@ -1,4 +1,4 @@
-import { GetDailyBatchRequestBody, GetDailyBatchResponse, GET_DAILY_BATCH, ProcessDailyMeterReadingRequestBody, ProcessDailyMeterReadingResponse, PROCESS_DAILY_METER_READING, GetUnprocessedDateRequestBody, GetUnprocessedDateResponse, GET_UNPROCESSED_DATE } from './interface';
+import { GetDailyBatchRequestBody, GetDailyBatchResponse, GET_DAILY_BATCH, ProcessDailyMeterReadingRequestBody, ProcessDailyMeterReadingResponse, PROCESS_DAILY_METER_READING } from './interface';
 import { NodeClientInterface, NodeClientOptions } from '@selfage/service_descriptor/client_interface';
 
 export function getDailyBatch(
@@ -23,20 +23,6 @@ export function processDailyMeterReading(
   return client.send(
     {
       descriptor: PROCESS_DAILY_METER_READING,
-      body,
-    },
-    options,
-  );
-}
-
-export function getUnprocessedDate(
-  client: NodeClientInterface,
-  body: GetUnprocessedDateRequestBody,
-  options?: NodeClientOptions,
-): Promise<GetUnprocessedDateResponse> {
-  return client.send(
-    {
-      descriptor: GET_UNPROCESSED_DATE,
       body,
     },
     options,
