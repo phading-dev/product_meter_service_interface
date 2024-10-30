@@ -1,12 +1,9 @@
 - message:
     name: GetDailyBatchRequestBody
     fields:
-      - name: limit
-        type: number
-        index: 1
       - name: cursor
         type: string
-        index: 2
+        index: 1
 - message:
     name: GetDailyBatchResponse
     fields:
@@ -25,6 +22,31 @@
         index: 1
 - message:
     name: ProcessDailyMeterReadingResponse
+- message:
+    name: GetMonthlyBatchRequestBody
+    fields:
+      - name: cursor
+        type: string
+        index: 1
+- message:
+    name: GetMonthlyBatchResponse
+    fields:
+      - name: rowKeys
+        type: string
+        isArray: true
+        index: 1
+      - name: cursor
+        type: string
+        index: 2
+
+- message:
+    name: ProcessMonthlyMeterReadingRequestBody
+    fields: 
+      - name: rowKey
+        type: string
+        index: 1
+- message:
+    name: ProcessMonthlyMeterReadingResponse
 - nodeService:
     name: ProductMeterConsumerShowBackendService
     remoteCalls:
@@ -36,5 +58,13 @@
         path: /ProcessDailyMeterReading
         body: ProcessDailyMeterReadingRequestBody
         response: ProcessDailyMeterReadingResponse
+      - name: GetMonthlyBatch
+        path: /GetMonthlyBatch
+        body: GetMonthlyBatchRequestBody
+        response: GetMonthlyBatchResponse
+      - name: ProcessMonthlyMeterReading
+        path: /ProcessMonthlyMeterReading
+        body: ProcessMonthlyMeterReadingRequestBody
+        response: ProcessMonthlyMeterReadingResponse
     outputClient: ./consumer/show/backend/client
     outputHandler: ./consumer/show/backend/handler

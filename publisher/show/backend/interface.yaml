@@ -1,12 +1,9 @@
 - message:
     name: GetDailyBatchRequestBody
     fields:
-      - name: limit
-        type: number
-        index: 1
       - name: cursor
         type: string
-        index: 2
+        index: 1
 - message:
     name: GetDailyBatchResponse
     fields:

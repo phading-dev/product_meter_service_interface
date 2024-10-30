@@ -2,19 +2,14 @@ import { PrimitiveType, MessageDescriptor } from '@selfage/message/descriptor';
 import { NodeRemoteCallDescriptor } from '@selfage/service_descriptor';
 
 export interface GetDailyBatchRequestBody {
-  limit?: number,
   cursor?: string,
 }
 
 export let GET_DAILY_BATCH_REQUEST_BODY: MessageDescriptor<GetDailyBatchRequestBody> = {
   name: 'GetDailyBatchRequestBody',
   fields: [{
-    name: 'limit',
-    index: 1,
-    primitiveType: PrimitiveType.NUMBER,
-  }, {
     name: 'cursor',
-    index: 2,
+    index: 1,
     primitiveType: PrimitiveType.STRING,
   }],
 };
