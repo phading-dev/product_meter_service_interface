@@ -1,44 +1,13 @@
 import { PrimitiveType, MessageDescriptor } from '@selfage/message/descriptor';
-import { MeterReadingPerEpisode, METER_READING_PER_EPISODE, MeterReadingPerDay, METER_READING_PER_DAY, MeterReadingPerMonth, METER_READING_PER_MONTH } from './meter_reading';
+import { MeterReadingPerSeason, METER_READING_PER_SEASON, MeterReadingPerDay, METER_READING_PER_DAY, MeterReadingPerMonth, METER_READING_PER_MONTH } from './meter_reading';
 import { WebRemoteCallDescriptor } from '@selfage/service_descriptor';
 
-export interface SyncMeterReadingRequestBody {
-  seasonId?: string,
-  episodeId?: string,
-  watchTimeMs?: number,
-}
-
-export let SYNC_METER_READING_REQUEST_BODY: MessageDescriptor<SyncMeterReadingRequestBody> = {
-  name: 'SyncMeterReadingRequestBody',
-  fields: [{
-    name: 'seasonId',
-    index: 1,
-    primitiveType: PrimitiveType.STRING,
-  }, {
-    name: 'episodeId',
-    index: 2,
-    primitiveType: PrimitiveType.STRING,
-  }, {
-    name: 'watchTimeMs',
-    index: 3,
-    primitiveType: PrimitiveType.NUMBER,
-  }],
-};
-
-export interface SyncMeterReadingResponse {
-}
-
-export let SYNC_METER_READING_RESPONSE: MessageDescriptor<SyncMeterReadingResponse> = {
-  name: 'SyncMeterReadingResponse',
-  fields: [],
-};
-
-export interface ListMeterReadingPerEpisodeRequestBody {
+export interface ListMeterReadingPerSeasonRequestBody {
   date?: string,
 }
 
-export let LIST_METER_READING_PER_EPISODE_REQUEST_BODY: MessageDescriptor<ListMeterReadingPerEpisodeRequestBody> = {
-  name: 'ListMeterReadingPerEpisodeRequestBody',
+export let LIST_METER_READING_PER_SEASON_REQUEST_BODY: MessageDescriptor<ListMeterReadingPerSeasonRequestBody> = {
+  name: 'ListMeterReadingPerSeasonRequestBody',
   fields: [{
     name: 'date',
     index: 1,
@@ -46,16 +15,16 @@ export let LIST_METER_READING_PER_EPISODE_REQUEST_BODY: MessageDescriptor<ListMe
   }],
 };
 
-export interface ListMeterReadingPerEpisodeResponse {
-  readings?: Array<MeterReadingPerEpisode>,
+export interface ListMeterReadingPerSeasonResponse {
+  readings?: Array<MeterReadingPerSeason>,
 }
 
-export let LIST_METER_READING_PER_EPISODE_RESPONSE: MessageDescriptor<ListMeterReadingPerEpisodeResponse> = {
-  name: 'ListMeterReadingPerEpisodeResponse',
+export let LIST_METER_READING_PER_SEASON_RESPONSE: MessageDescriptor<ListMeterReadingPerSeasonResponse> = {
+  name: 'ListMeterReadingPerSeasonResponse',
   fields: [{
     name: 'readings',
     index: 1,
-    messageType: METER_READING_PER_EPISODE,
+    messageType: METER_READING_PER_SEASON,
     isArray: true,
   }],
 };
@@ -124,27 +93,15 @@ export let LIST_METER_READINGS_PER_MONTH_RESPONSE: MessageDescriptor<ListMeterRe
   }],
 };
 
-export let SYNC_METER_READING: WebRemoteCallDescriptor = {
-  name: "SyncMeterReading",
-  path: "/SyncMeterReading",
+export let LIST_METER_READING_PER_SEASON: WebRemoteCallDescriptor = {
+  name: "ListMeterReadingPerSeason",
+  path: "/ListMeterReadingPerSeason",
   body: {
-    messageType: SYNC_METER_READING_REQUEST_BODY,
+    messageType: LIST_METER_READING_PER_SEASON_REQUEST_BODY,
   },
   sessionKey: "sk",
   response: {
-    messageType: SYNC_METER_READING_RESPONSE,
-  },
-}
-
-export let LIST_METER_READING_PER_EPISODE: WebRemoteCallDescriptor = {
-  name: "ListMeterReadingPerEpisode",
-  path: "/ListMeterReadingPerEpisode",
-  body: {
-    messageType: LIST_METER_READING_PER_EPISODE_REQUEST_BODY,
-  },
-  sessionKey: "sk",
-  response: {
-    messageType: LIST_METER_READING_PER_EPISODE_RESPONSE,
+    messageType: LIST_METER_READING_PER_SEASON_RESPONSE,
   },
 }
 

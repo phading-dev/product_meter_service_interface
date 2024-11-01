@@ -1,47 +1,37 @@
 import { PrimitiveType, MessageDescriptor } from '@selfage/message/descriptor';
 import { Money, MONEY } from '@phading/price/money';
 
-export interface EpisodeSummary {
+export interface SeasonSummary {
   seasonId?: string,
-  episodeId?: string,
   seasonName?: string,
-  episodeName?: string,
 }
 
-export let EPISODE_SUMMARY: MessageDescriptor<EpisodeSummary> = {
-  name: 'EpisodeSummary',
+export let SEASON_SUMMARY: MessageDescriptor<SeasonSummary> = {
+  name: 'SeasonSummary',
   fields: [{
     name: 'seasonId',
     index: 1,
     primitiveType: PrimitiveType.STRING,
   }, {
-    name: 'episodeId',
-    index: 2,
-    primitiveType: PrimitiveType.STRING,
-  }, {
     name: 'seasonName',
-    index: 3,
-    primitiveType: PrimitiveType.STRING,
-  }, {
-    name: 'episodeName',
-    index: 4,
+    index: 2,
     primitiveType: PrimitiveType.STRING,
   }],
 };
 
-export interface MeterReadingPerEpisode {
-  episode?: EpisodeSummary,
-  watchTimeMs?: number,
+export interface MeterReadingPerSeason {
+  season?: SeasonSummary,
+  watchTimeSec?: number,
 }
 
-export let METER_READING_PER_EPISODE: MessageDescriptor<MeterReadingPerEpisode> = {
-  name: 'MeterReadingPerEpisode',
+export let METER_READING_PER_SEASON: MessageDescriptor<MeterReadingPerSeason> = {
+  name: 'MeterReadingPerSeason',
   fields: [{
-    name: 'episode',
+    name: 'season',
     index: 1,
-    messageType: EPISODE_SUMMARY,
+    messageType: SEASON_SUMMARY,
   }, {
-    name: 'watchTimeMs',
+    name: 'watchTimeSec',
     index: 2,
     primitiveType: PrimitiveType.NUMBER,
   }],
@@ -50,6 +40,7 @@ export let METER_READING_PER_EPISODE: MessageDescriptor<MeterReadingPerEpisode> 
 export interface MeterReadingPerDay {
   date?: string,
   watchTimeSec?: number,
+  transmittedBytes?: number,
 }
 
 export let METER_READING_PER_DAY: MessageDescriptor<MeterReadingPerDay> = {
@@ -62,12 +53,20 @@ export let METER_READING_PER_DAY: MessageDescriptor<MeterReadingPerDay> = {
     name: 'watchTimeSec',
     index: 2,
     primitiveType: PrimitiveType.NUMBER,
+  }, {
+    name: 'transmittedBytes',
+    index: 3,
+    primitiveType: PrimitiveType.NUMBER,
   }],
 };
 
 export interface MeterReadingPerMonth {
   month?: string,
-  cost?: Money,
+  earning?: Money,
+  platformCutCost?: Money,
+  networkCost?: Money,
+  storageCost?: Money,
+  uploadCost?: Money,
 }
 
 export let METER_READING_PER_MONTH: MessageDescriptor<MeterReadingPerMonth> = {
@@ -77,8 +76,24 @@ export let METER_READING_PER_MONTH: MessageDescriptor<MeterReadingPerMonth> = {
     index: 1,
     primitiveType: PrimitiveType.STRING,
   }, {
-    name: 'cost',
+    name: 'earning',
     index: 2,
+    messageType: MONEY,
+  }, {
+    name: 'platformCutCost',
+    index: 3,
+    messageType: MONEY,
+  }, {
+    name: 'networkCost',
+    index: 4,
+    messageType: MONEY,
+  }, {
+    name: 'storageCost',
+    index: 5,
+    messageType: MONEY,
+  }, {
+    name: 'uploadCost',
+    index: 6,
     messageType: MONEY,
   }],
 };

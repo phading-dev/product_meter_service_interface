@@ -25,26 +25,19 @@
 - message:
     name: MeterReadingPerDay
     fields:
-      - name: timezone # UTC offsets in the format "±hh".
+      - name: date # ISO string
         type: string
         index: 1
-      - name: date # Timestamp of the start of the date in the timezone
+      - name: watchTimeSec # Watch time multipled by grade
         type: number
         index: 2
-      - name: amount
-        type: Money
-        import: ./money
-        index: 3
 - message:
     name: MeterReadingPerMonth
     fields:
-      - name: timezone # UTC offsets in the format "±hh".
+      - name: month # ISO string
         type: string
         index: 1
-      - name: month # Timestamp of the start of the month in the timezone
-        type: number
-        index: 2
-      - name: amount
+      - name: cost
         type: Money
-        import: ./money
-        index: 3
+        import: "@phading/price/money"
+        index: 2
