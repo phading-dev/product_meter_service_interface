@@ -1,4 +1,4 @@
-import { SyncMeterReadingRequestBody, SYNC_METER_READING, SyncMeterReadingResponse, ListMeterReadingPerEpisodeRequestBody, LIST_METER_READING_PER_EPISODE, ListMeterReadingPerEpisodeResponse, ListMeterReadingsPerDayRequestBody, LIST_METER_READINGS_PER_DAY, ListMeterReadingsPerDayResponse, ListMeterReadingsPerMonthRequestBody, LIST_METER_READINGS_PER_MONTH, ListMeterReadingsPerMonthResponse } from './interface';
+import { SyncMeterReadingRequestBody, SYNC_METER_READING, SyncMeterReadingResponse, ListMeterReadingPerSeasonRequestBody, LIST_METER_READING_PER_SEASON, ListMeterReadingPerSeasonResponse, ListMeterReadingsPerDayRequestBody, LIST_METER_READINGS_PER_DAY, ListMeterReadingsPerDayResponse, ListMeterReadingsPerMonthRequestBody, LIST_METER_READINGS_PER_MONTH, ListMeterReadingsPerMonthResponse } from './interface';
 import { WebHandlerInterface } from '@selfage/service_descriptor/handler_interface';
 
 export abstract class SyncMeterReadingHandlerInterface implements WebHandlerInterface {
@@ -10,13 +10,13 @@ export abstract class SyncMeterReadingHandlerInterface implements WebHandlerInte
   ): Promise<SyncMeterReadingResponse>;
 }
 
-export abstract class ListMeterReadingPerEpisodeHandlerInterface implements WebHandlerInterface {
-  public descriptor = LIST_METER_READING_PER_EPISODE;
+export abstract class ListMeterReadingPerSeasonHandlerInterface implements WebHandlerInterface {
+  public descriptor = LIST_METER_READING_PER_SEASON;
   public abstract handle(
     loggingPrefix: string,
-    body: ListMeterReadingPerEpisodeRequestBody,
+    body: ListMeterReadingPerSeasonRequestBody,
     sessionStr: string,
-  ): Promise<ListMeterReadingPerEpisodeResponse>;
+  ): Promise<ListMeterReadingPerSeasonResponse>;
 }
 
 export abstract class ListMeterReadingsPerDayHandlerInterface implements WebHandlerInterface {

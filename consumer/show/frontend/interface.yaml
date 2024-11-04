@@ -13,16 +13,16 @@
 - message:
     name: SyncMeterReadingResponse
 - message:
-    name: ListMeterReadingPerEpisodeRequestBody
+    name: ListMeterReadingPerSeasonRequestBody
     fields:
       - name: date # ISO string
         type: string
         index: 1
 - message:
-    name: ListMeterReadingPerEpisodeResponse
+    name: ListMeterReadingPerSeasonResponse
     fields:
       - name: readings
-        type: MeterReadingPerEpisode
+        type: MeterReadingPerSeason
         import: ./consumer/show/frontend/meter_reading
         isArray: true
         index: 1
@@ -68,11 +68,11 @@
         body: SyncMeterReadingRequestBody
         sessionKey: sk
         response: SyncMeterReadingResponse
-      - name: ListMeterReadingPerEpisode
-        path: /ListMeterReadingPerEpisode
-        body: ListMeterReadingPerEpisodeRequestBody
+      - name: ListMeterReadingPerSeason
+        path: /ListMeterReadingPerSeason
+        body: ListMeterReadingPerSeasonRequestBody
         sessionKey: sk
-        response: ListMeterReadingPerEpisodeResponse
+        response: ListMeterReadingPerSeasonResponse
       - name: ListMeterReadingsPerDay
         path: /ListMeterReadingsPerDay
         body: ListMeterReadingsPerDayRequestBody

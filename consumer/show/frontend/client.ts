@@ -1,4 +1,4 @@
-import { SyncMeterReadingRequestBody, SyncMeterReadingResponse, SYNC_METER_READING, ListMeterReadingPerEpisodeRequestBody, ListMeterReadingPerEpisodeResponse, LIST_METER_READING_PER_EPISODE, ListMeterReadingsPerDayRequestBody, ListMeterReadingsPerDayResponse, LIST_METER_READINGS_PER_DAY, ListMeterReadingsPerMonthRequestBody, ListMeterReadingsPerMonthResponse, LIST_METER_READINGS_PER_MONTH } from './interface';
+import { SyncMeterReadingRequestBody, SyncMeterReadingResponse, SYNC_METER_READING, ListMeterReadingPerSeasonRequestBody, ListMeterReadingPerSeasonResponse, LIST_METER_READING_PER_SEASON, ListMeterReadingsPerDayRequestBody, ListMeterReadingsPerDayResponse, LIST_METER_READINGS_PER_DAY, ListMeterReadingsPerMonthRequestBody, ListMeterReadingsPerMonthResponse, LIST_METER_READINGS_PER_MONTH } from './interface';
 import { WebClientInterface, WebClientOptions } from '@selfage/service_descriptor/client_interface';
 
 export function syncMeterReading(
@@ -15,14 +15,14 @@ export function syncMeterReading(
   );
 }
 
-export function listMeterReadingPerEpisode(
+export function listMeterReadingPerSeason(
   client: WebClientInterface,
-  body: ListMeterReadingPerEpisodeRequestBody,
+  body: ListMeterReadingPerSeasonRequestBody,
   options?: WebClientOptions,
-): Promise<ListMeterReadingPerEpisodeResponse> {
+): Promise<ListMeterReadingPerSeasonResponse> {
   return client.send(
     {
-      descriptor: LIST_METER_READING_PER_EPISODE,
+      descriptor: LIST_METER_READING_PER_SEASON,
       body,
     },
     options,
