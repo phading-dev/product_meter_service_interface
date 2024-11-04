@@ -37,7 +37,6 @@
       - name: month # ISO string
         type: string
         index: 1
-      - name: cost
-        type: Money
-        import: "@phading/price/money"
+      - name: watchTimeSec # Watch time multipled by grade
+        type: number
         index: 2

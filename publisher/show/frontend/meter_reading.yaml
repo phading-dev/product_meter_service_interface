@@ -25,7 +25,7 @@
       - name: watchTimeSec
         type: number
         index: 2
-      - name: transmittedBytes
+      - name: transmittedMb
         type: number
         index: 3
 - message:
@@ -34,23 +34,15 @@
       - name: month # ISO string
         type: string
         index: 1
-      - name: earning
-        type: Money
-        import: "@phading/price/money"
+      - name: watchTimeSec
+        type: number
         index: 2
-      - name: platformCutCost
-        type: Money
-        import: "@phading/price/money"
+      - name: transmittedMb
+        type: number
         index: 3
-      - name: networkCost
-        type: Money
-        import: "@phading/price/money"
+      - name: storageMbh
+        type: number
         index: 4
-      - name: storageCost
-        type: Money
-        import: "@phading/price/money"
+      - name: uploadMb
+        type: number
         index: 5
-      - name: uploadCost
-        type: Money
-        import: "@phading/price/money"
-        index: 6

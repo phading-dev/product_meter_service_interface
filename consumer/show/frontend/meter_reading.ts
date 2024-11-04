@@ -1,5 +1,4 @@
 import { PrimitiveType, MessageDescriptor } from '@selfage/message/descriptor';
-import { Money, MONEY } from '@phading/price/money';
 
 export interface EpisodeSummary {
   seasonId?: string,
@@ -67,7 +66,7 @@ export let METER_READING_PER_DAY: MessageDescriptor<MeterReadingPerDay> = {
 
 export interface MeterReadingPerMonth {
   month?: string,
-  cost?: Money,
+  watchTimeSec?: number,
 }
 
 export let METER_READING_PER_MONTH: MessageDescriptor<MeterReadingPerMonth> = {
@@ -77,8 +76,8 @@ export let METER_READING_PER_MONTH: MessageDescriptor<MeterReadingPerMonth> = {
     index: 1,
     primitiveType: PrimitiveType.STRING,
   }, {
-    name: 'cost',
+    name: 'watchTimeSec',
     index: 2,
-    messageType: MONEY,
+    primitiveType: PrimitiveType.NUMBER,
   }],
 };

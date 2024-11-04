@@ -1,5 +1,4 @@
 import { PrimitiveType, MessageDescriptor } from '@selfage/message/descriptor';
-import { Money, MONEY } from '@phading/price/money';
 
 export interface SeasonSummary {
   seasonId?: string,
@@ -40,7 +39,7 @@ export let METER_READING_PER_SEASON: MessageDescriptor<MeterReadingPerSeason> = 
 export interface MeterReadingPerDay {
   date?: string,
   watchTimeSec?: number,
-  transmittedBytes?: number,
+  transmittedMb?: number,
 }
 
 export let METER_READING_PER_DAY: MessageDescriptor<MeterReadingPerDay> = {
@@ -54,7 +53,7 @@ export let METER_READING_PER_DAY: MessageDescriptor<MeterReadingPerDay> = {
     index: 2,
     primitiveType: PrimitiveType.NUMBER,
   }, {
-    name: 'transmittedBytes',
+    name: 'transmittedMb',
     index: 3,
     primitiveType: PrimitiveType.NUMBER,
   }],
@@ -62,11 +61,10 @@ export let METER_READING_PER_DAY: MessageDescriptor<MeterReadingPerDay> = {
 
 export interface MeterReadingPerMonth {
   month?: string,
-  earning?: Money,
-  platformCutCost?: Money,
-  networkCost?: Money,
-  storageCost?: Money,
-  uploadCost?: Money,
+  watchTimeSec?: number,
+  transmittedMb?: number,
+  storageMbh?: number,
+  uploadMb?: number,
 }
 
 export let METER_READING_PER_MONTH: MessageDescriptor<MeterReadingPerMonth> = {
@@ -76,24 +74,20 @@ export let METER_READING_PER_MONTH: MessageDescriptor<MeterReadingPerMonth> = {
     index: 1,
     primitiveType: PrimitiveType.STRING,
   }, {
-    name: 'earning',
+    name: 'watchTimeSec',
     index: 2,
-    messageType: MONEY,
+    primitiveType: PrimitiveType.NUMBER,
   }, {
-    name: 'platformCutCost',
+    name: 'transmittedMb',
     index: 3,
-    messageType: MONEY,
+    primitiveType: PrimitiveType.NUMBER,
   }, {
-    name: 'networkCost',
+    name: 'storageMbh',
     index: 4,
-    messageType: MONEY,
+    primitiveType: PrimitiveType.NUMBER,
   }, {
-    name: 'storageCost',
+    name: 'uploadMb',
     index: 5,
-    messageType: MONEY,
-  }, {
-    name: 'uploadCost',
-    index: 6,
-    messageType: MONEY,
+    primitiveType: PrimitiveType.NUMBER,
   }],
 };
