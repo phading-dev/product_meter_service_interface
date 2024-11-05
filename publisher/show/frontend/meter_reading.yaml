@@ -13,16 +13,19 @@
       - name: season
         type: SeasonSummary
         index: 1
-      - name: watchTimeSec # Watch time multipled by grade
+      - name: watchTimeSec
         type: number
         index: 2
+      - name: watchTimeSecGraded
+        type: number
+        index: 3
 - message:
     name: MeterReadingPerDay
     fields:
       - name: date # ISO string
         type: string
         index: 1
-      - name: watchTimeSec
+      - name: watchTimeSecGraded
         type: number
         index: 2
       - name: transmittedMb
@@ -34,7 +37,7 @@
       - name: month # ISO string
         type: string
         index: 1
-      - name: watchTimeSec
+      - name: watchTimeSecGraded
         type: number
         index: 2
       - name: transmittedMb
