@@ -44,7 +44,7 @@ export let METER_READING_PER_SEASON: MessageDescriptor<MeterReadingPerSeason> = 
 export interface MeterReadingPerDay {
   date?: string,
   watchTimeSecGraded?: number,
-  transmittedMb?: number,
+  transmittedKb?: number,
 }
 
 export let METER_READING_PER_DAY: MessageDescriptor<MeterReadingPerDay> = {
@@ -58,7 +58,7 @@ export let METER_READING_PER_DAY: MessageDescriptor<MeterReadingPerDay> = {
     index: 2,
     primitiveType: PrimitiveType.NUMBER,
   }, {
-    name: 'transmittedMb',
+    name: 'transmittedKb',
     index: 3,
     primitiveType: PrimitiveType.NUMBER,
   }],

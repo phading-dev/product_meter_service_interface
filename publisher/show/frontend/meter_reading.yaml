@@ -28,7 +28,7 @@
       - name: watchTimeSecGraded
         type: number
         index: 2
-      - name: transmittedMb
+      - name: transmittedKb
         type: number
         index: 3
 - message:
