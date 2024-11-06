@@ -9,7 +9,7 @@
     fields:
       - name: readings
         type: MeterReadingPerSeason
-        import: ./publisher/show/frontend/meter_reading
+        import: ./show/frontend/publisher/meter_reading
         isArray: true
         index: 1
 - message:
@@ -26,7 +26,7 @@
     fields:
       - name: readings
         type: MeterReadingPerDay
-        import: ./publisher/show/frontend/meter_reading
+        import: ./show/frontend/publisher/meter_reading
         isArray: true
         index: 1
 - message:
@@ -43,11 +43,11 @@
     fields:
       - name: readings
         type: MeterReadingPerMonth
-        import: ./publisher/show/frontend/meter_reading
+        import: ./show/frontend/publisher/meter_reading
         isArray: true
         index: 1
 - webService:
-    name: ProductMeterPublisherShowFrontendService
+    name: ProductMeterShowFrontendPublisherService
     remoteCalls:
       - name: ListMeterReadingPerSeason
         path: /ListMeterReadingPerSeason
@@ -64,5 +64,5 @@
         body: ListMeterReadingsPerMonthRequestBody
         sessionKey: sk
         response: ListMeterReadingsPerMonthResponse
-    outputClient: ./publisher/show/frontend/client
-    outputHandler: ./publisher/show/frontend/handler
+    outputClient: ./show/frontend/publisher/client
+    outputHandler: ./show/frontend/publisher/handler

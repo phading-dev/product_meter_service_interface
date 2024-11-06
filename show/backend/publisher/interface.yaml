@@ -51,7 +51,7 @@
 - message:
     name: ProcessMonthlyMeterReadingResponse
 - nodeService:
-    name: ProductMeterPublisherShowBackendService
+    name: ProductMeterShowBackendPublisherService
     remoteCalls:
       - name: GetDailyBatch
         path: /GetDailyBatch
@@ -73,5 +73,5 @@
         path: /ProcessMonthlyMeterReading
         body: ProcessMonthlyMeterReadingRequestBody
         response: ProcessMonthlyMeterReadingResponse
-    outputClient: ./publisher/show/backend/client
-    outputHandler: ./publisher/show/backend/handler
+    outputClient: ./show/backend/publisher/client
+    outputHandler: ./show/backend/publisher/handler
