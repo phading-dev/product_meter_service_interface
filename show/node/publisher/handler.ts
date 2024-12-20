@@ -1,13 +1,5 @@
-import { GetTimezoneOffsetRequestBody, GET_TIMEZONE_OFFSET, GetTimezoneOffsetResponse, GetDailyBatchRequestBody, GET_DAILY_BATCH, GetDailyBatchResponse, ProcessDailyMeterReadingRequestBody, PROCESS_DAILY_METER_READING, ProcessDailyMeterReadingResponse, LoadPublishersToProcessMonthlyRequestBody, LOAD_PUBLISHERS_TO_PROCESS_MONTHLY, LoadPublishersToProcessMonthlyResponse, GetMonthlyBatchRequestBody, GET_MONTHLY_BATCH, GetMonthlyBatchResponse, ProcessMonthlyMeterReadingRequestBody, PROCESS_MONTHLY_METER_READING, ProcessMonthlyMeterReadingResponse } from './interface';
+import { GetDailyBatchRequestBody, GET_DAILY_BATCH, GetDailyBatchResponse, ProcessDailyMeterReadingRequestBody, PROCESS_DAILY_METER_READING, ProcessDailyMeterReadingResponse, LoadPublishersToProcessMonthlyRequestBody, LOAD_PUBLISHERS_TO_PROCESS_MONTHLY, LoadPublishersToProcessMonthlyResponse, GetMonthlyBatchRequestBody, GET_MONTHLY_BATCH, GetMonthlyBatchResponse, ProcessMonthlyMeterReadingRequestBody, PROCESS_MONTHLY_METER_READING, ProcessMonthlyMeterReadingResponse } from './interface';
 import { NodeHandlerInterface } from '@selfage/service_descriptor/handler_interface';
-
-export abstract class GetTimezoneOffsetHandlerInterface implements NodeHandlerInterface {
-  public descriptor = GET_TIMEZONE_OFFSET;
-  public abstract handle(
-    loggingPrefix: string,
-    body: GetTimezoneOffsetRequestBody,
-  ): Promise<GetTimezoneOffsetResponse>;
-}
 
 export abstract class GetDailyBatchHandlerInterface implements NodeHandlerInterface {
   public descriptor = GET_DAILY_BATCH;

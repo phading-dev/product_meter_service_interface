@@ -1,12 +1,4 @@
 - message:
-    name: GetTimezoneOffsetRequestBody
-- message:
-    name: GetTimezoneOffsetResponse
-    fields:
-      - name: negativeOffset
-        type: number
-        index: 1
-- message:
     name: GetDailyBatchRequestBody
     fields:
       - name: cursor
@@ -61,10 +53,6 @@
 - nodeService:
     name: ProductMeterShowNodePublisherService
     remoteCalls:
-      - name: GetTimezoneOffset
-        path: /GetTimezoneOffset
-        body: GetTimezoneOffsetRequestBody
-        response: GetTimezoneOffsetResponse
       - name: GetDailyBatch
         path: /GetDailyBatch
         body: GetDailyBatchRequestBody
