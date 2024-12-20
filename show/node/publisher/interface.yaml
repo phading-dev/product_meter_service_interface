@@ -1,4 +1,12 @@
 - message:
+    name: GetTimezoneOffsetRequestBody
+- message:
+    name: GetTimezoneOffsetResponse
+    fields:
+      - name: negativeOffset
+        type: number
+        index: 1
+- message:
     name: GetDailyBatchRequestBody
     fields:
       - name: cursor
@@ -23,6 +31,10 @@
 - message:
     name: ProcessDailyMeterReadingResponse
 - message:
+    name: LoadPublishersToProcessMonthlyRequestBody
+- message:
+    name: LoadPublishersToProcessMonthlyResponse
+- message:
     name: GetMonthlyBatchRequestBody
     fields:
       - name: cursor
@@ -38,7 +50,6 @@
       - name: cursor
         type: string
         index: 2
-
 - message:
     name: ProcessMonthlyMeterReadingRequestBody
     fields: 
@@ -48,8 +59,12 @@
 - message:
     name: ProcessMonthlyMeterReadingResponse
 - nodeService:
-    name: ProductMeterShowBackendConsumerService
+    name: ProductMeterShowNodePublisherService
     remoteCalls:
+      - name: GetTimezoneOffset
+        path: /GetTimezoneOffset
+        body: GetTimezoneOffsetRequestBody
+        response: GetTimezoneOffsetResponse
       - name: GetDailyBatch
         path: /GetDailyBatch
         body: GetDailyBatchRequestBody
@@ -58,6 +73,10 @@
         path: /ProcessDailyMeterReading
         body: ProcessDailyMeterReadingRequestBody
         response: ProcessDailyMeterReadingResponse
+      - name: LoadPublishersToProcessMonthly
+        path: /LoadPublishersToProcessMonthly
+        body: LoadPublishersToProcessMonthlyRequestBody
+        response: LoadPublishersToProcessMonthlyResponse
       - name: GetMonthlyBatch
         path: /GetMonthlyBatch
         body: GetMonthlyBatchRequestBody
@@ -66,5 +85,5 @@
         path: /ProcessMonthlyMeterReading
         body: ProcessMonthlyMeterReadingRequestBody
         response: ProcessMonthlyMeterReadingResponse
-    outputClient: ./show/backend/consumer/client
-    outputHandler: ./show/backend/consumer/handler
+    outputClient: ./show/node/publisher/client
+    outputHandler: ./show/node/publisher/handler

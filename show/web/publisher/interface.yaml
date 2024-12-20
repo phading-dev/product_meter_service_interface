@@ -1,18 +1,4 @@
 - message:
-    name: SyncMeterReadingRequestBody
-    fields:
-      - name: seasonId
-        type: string
-        index: 1
-      - name: episodeId
-        type: string
-        index: 2
-      - name: watchTimeMs # ms
-        type: number
-        index: 3
-- message:
-    name: SyncMeterReadingResponse
-- message:
     name: ListMeterReadingPerSeasonRequestBody
     fields:
       - name: date # ISO string
@@ -23,7 +9,7 @@
     fields:
       - name: readings
         type: MeterReadingPerSeason
-        import: ./show/frontend/consumer/meter_reading
+        import: ./show/web/publisher/meter_reading
         isArray: true
         index: 1
 - message:
@@ -40,7 +26,7 @@
     fields:
       - name: readings
         type: MeterReadingPerDay
-        import: ./show/frontend/consumer/meter_reading
+        import: ./show/web/publisher/meter_reading
         isArray: true
         index: 1
 - message:
@@ -57,17 +43,12 @@
     fields:
       - name: readings
         type: MeterReadingPerMonth
-        import: ./show/frontend/consumer/meter_reading
+        import: ./show/web/publisher/meter_reading
         isArray: true
         index: 1
 - webService:
-    name: ProductMeterShowFrontendConsumerService
+    name: ProductMeterShowWebPublisherService
     remoteCalls:
-      - name: SyncMeterReading
-        path: /SyncMeterReading
-        body: SyncMeterReadingRequestBody
-        sessionKey: sk
-        response: SyncMeterReadingResponse
       - name: ListMeterReadingPerSeason
         path: /ListMeterReadingPerSeason
         body: ListMeterReadingPerSeasonRequestBody
@@ -83,5 +64,5 @@
         body: ListMeterReadingsPerMonthRequestBody
         sessionKey: sk
         response: ListMeterReadingsPerMonthResponse
-    outputClient: ./show/frontend/consumer/client
-    outputHandler: ./show/frontend/consumer/handler
+    outputClient: ./show/web/publisher/client
+    outputHandler: ./show/web/publisher/handler

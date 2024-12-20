@@ -23,10 +23,6 @@
 - message:
     name: ProcessDailyMeterReadingResponse
 - message:
-    name: LoadPublishersToProcessMonthlyRequestBody
-- message:
-    name: LoadPublishersToProcessMonthlyResponse
-- message:
     name: GetMonthlyBatchRequestBody
     fields:
       - name: cursor
@@ -42,6 +38,7 @@
       - name: cursor
         type: string
         index: 2
+
 - message:
     name: ProcessMonthlyMeterReadingRequestBody
     fields: 
@@ -51,7 +48,7 @@
 - message:
     name: ProcessMonthlyMeterReadingResponse
 - nodeService:
-    name: ProductMeterShowBackendPublisherService
+    name: ProductMeterShowNodeConsumerService
     remoteCalls:
       - name: GetDailyBatch
         path: /GetDailyBatch
@@ -61,10 +58,6 @@
         path: /ProcessDailyMeterReading
         body: ProcessDailyMeterReadingRequestBody
         response: ProcessDailyMeterReadingResponse
-      - name: LoadPublishersToProcessMonthly
-        path: /LoadPublishersToProcessMonthly
-        body: LoadPublishersToProcessMonthlyRequestBody
-        response: LoadPublishersToProcessMonthlyResponse
       - name: GetMonthlyBatch
         path: /GetMonthlyBatch
         body: GetMonthlyBatchRequestBody
@@ -73,5 +66,5 @@
         path: /ProcessMonthlyMeterReading
         body: ProcessMonthlyMeterReadingRequestBody
         response: ProcessMonthlyMeterReadingResponse
-    outputClient: ./show/backend/publisher/client
-    outputHandler: ./show/backend/publisher/handler
+    outputClient: ./show/node/consumer/client
+    outputHandler: ./show/node/consumer/handler

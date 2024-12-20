@@ -1,5 +1,19 @@
-import { GetDailyBatchRequestBody, GetDailyBatchResponse, GET_DAILY_BATCH, ProcessDailyMeterReadingRequestBody, ProcessDailyMeterReadingResponse, PROCESS_DAILY_METER_READING, LoadPublishersToProcessMonthlyRequestBody, LoadPublishersToProcessMonthlyResponse, LOAD_PUBLISHERS_TO_PROCESS_MONTHLY, GetMonthlyBatchRequestBody, GetMonthlyBatchResponse, GET_MONTHLY_BATCH, ProcessMonthlyMeterReadingRequestBody, ProcessMonthlyMeterReadingResponse, PROCESS_MONTHLY_METER_READING } from './interface';
+import { GetTimezoneOffsetRequestBody, GetTimezoneOffsetResponse, GET_TIMEZONE_OFFSET, GetDailyBatchRequestBody, GetDailyBatchResponse, GET_DAILY_BATCH, ProcessDailyMeterReadingRequestBody, ProcessDailyMeterReadingResponse, PROCESS_DAILY_METER_READING, LoadPublishersToProcessMonthlyRequestBody, LoadPublishersToProcessMonthlyResponse, LOAD_PUBLISHERS_TO_PROCESS_MONTHLY, GetMonthlyBatchRequestBody, GetMonthlyBatchResponse, GET_MONTHLY_BATCH, ProcessMonthlyMeterReadingRequestBody, ProcessMonthlyMeterReadingResponse, PROCESS_MONTHLY_METER_READING } from './interface';
 import { NodeClientInterface, NodeClientOptions } from '@selfage/service_descriptor/client_interface';
+
+export function getTimezoneOffset(
+  client: NodeClientInterface,
+  body: GetTimezoneOffsetRequestBody,
+  options?: NodeClientOptions,
+): Promise<GetTimezoneOffsetResponse> {
+  return client.send(
+    {
+      descriptor: GET_TIMEZONE_OFFSET,
+      body,
+    },
+    options,
+  );
+}
 
 export function getDailyBatch(
   client: NodeClientInterface,
