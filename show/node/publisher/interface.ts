@@ -1,6 +1,94 @@
 import { PrimitiveType, MessageDescriptor } from '@selfage/message/descriptor';
 import { NodeRemoteCallDescriptor } from '@selfage/service_descriptor';
 
+export interface RecordUploadedRequestBody {
+  name?: string,
+  uploadedBytes?: number,
+  uploadedTimeMs?: number,
+}
+
+export let RECORD_UPLOADED_REQUEST_BODY: MessageDescriptor<RecordUploadedRequestBody> = {
+  name: 'RecordUploadedRequestBody',
+  fields: [{
+    name: 'name',
+    index: 1,
+    primitiveType: PrimitiveType.STRING,
+  }, {
+    name: 'uploadedBytes',
+    index: 2,
+    primitiveType: PrimitiveType.NUMBER,
+  }, {
+    name: 'uploadedTimeMs',
+    index: 3,
+    primitiveType: PrimitiveType.NUMBER,
+  }],
+};
+
+export interface RecordUploadedResponse {
+}
+
+export let RECORD_UPLOADED_RESPONSE: MessageDescriptor<RecordUploadedResponse> = {
+  name: 'RecordUploadedResponse',
+  fields: [],
+};
+
+export interface RecordStorageStartRequestBody {
+  name?: string,
+  storageBytes?: number,
+  storageStartMs?: number,
+}
+
+export let RECORD_STORAGE_START_REQUEST_BODY: MessageDescriptor<RecordStorageStartRequestBody> = {
+  name: 'RecordStorageStartRequestBody',
+  fields: [{
+    name: 'name',
+    index: 1,
+    primitiveType: PrimitiveType.STRING,
+  }, {
+    name: 'storageBytes',
+    index: 2,
+    primitiveType: PrimitiveType.NUMBER,
+  }, {
+    name: 'storageStartMs',
+    index: 3,
+    primitiveType: PrimitiveType.NUMBER,
+  }],
+};
+
+export interface RecordStorageStartResponse {
+}
+
+export let RECORD_STORAGE_START_RESPONSE: MessageDescriptor<RecordStorageStartResponse> = {
+  name: 'RecordStorageStartResponse',
+  fields: [],
+};
+
+export interface RecordStorageEndRequestBody {
+  name?: string,
+  storageEndMs?: number,
+}
+
+export let RECORD_STORAGE_END_REQUEST_BODY: MessageDescriptor<RecordStorageEndRequestBody> = {
+  name: 'RecordStorageEndRequestBody',
+  fields: [{
+    name: 'name',
+    index: 1,
+    primitiveType: PrimitiveType.STRING,
+  }, {
+    name: 'storageEndMs',
+    index: 2,
+    primitiveType: PrimitiveType.NUMBER,
+  }],
+};
+
+export interface RecordStorageEndResponse {
+}
+
+export let RECORD_STORAGE_END_RESPONSE: MessageDescriptor<RecordStorageEndResponse> = {
+  name: 'RecordStorageEndResponse',
+  fields: [],
+};
+
 export interface GetDailyWatchBatchRequestBody {
   cursor?: string,
 }
@@ -159,6 +247,39 @@ export let PROCESS_MONTHLY_METER_READING_RESPONSE: MessageDescriptor<ProcessMont
   name: 'ProcessMonthlyMeterReadingResponse',
   fields: [],
 };
+
+export let RECORD_UPLOADED: NodeRemoteCallDescriptor = {
+  name: "RecordUploaded",
+  path: "/RecordUploaded",
+  body: {
+    messageType: RECORD_UPLOADED_REQUEST_BODY,
+  },
+  response: {
+    messageType: RECORD_UPLOADED_RESPONSE,
+  },
+}
+
+export let RECORD_STORAGE_START: NodeRemoteCallDescriptor = {
+  name: "RecordStorageStart",
+  path: "/RecordStorageStart",
+  body: {
+    messageType: RECORD_STORAGE_START_REQUEST_BODY,
+  },
+  response: {
+    messageType: RECORD_STORAGE_START_RESPONSE,
+  },
+}
+
+export let RECORD_STORAGE_END: NodeRemoteCallDescriptor = {
+  name: "RecordStorageEnd",
+  path: "/RecordStorageEnd",
+  body: {
+    messageType: RECORD_STORAGE_END_REQUEST_BODY,
+  },
+  response: {
+    messageType: RECORD_STORAGE_END_RESPONSE,
+  },
+}
 
 export let GET_DAILY_WATCH_BATCH: NodeRemoteCallDescriptor = {
   name: "GetDailyWatchBatch",
