@@ -7,7 +7,7 @@
     - name: watchTimeSec
       type: number
       index: 2
-    - name: watchTimeSecGraded
+    - name: watchTimeMinGraded
       type: number
       index: 3
 - kind: Message
@@ -16,7 +16,7 @@
     - name: date # ISO string
       type: string
       index: 1
-    - name: watchTimeSecGraded
+    - name: watchTimeMinGraded
       type: number
       index: 2
     - name: transmittedKb
@@ -34,7 +34,7 @@
     - name: month # ISO string
       type: string
       index: 1
-    - name: watchTimeSecGraded
+    - name: watchTimeMinGraded
       type: number
       index: 2
     - name: transmittedMb
