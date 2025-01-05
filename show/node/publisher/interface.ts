@@ -2,6 +2,7 @@ import { PrimitiveType, MessageDescriptor } from '@selfage/message/descriptor';
 import { NodeRemoteCallDescriptor } from '@selfage/service_descriptor';
 
 export interface RecordUploadedRequestBody {
+  accountId?: string,
   name?: string,
   uploadedBytes?: number,
   uploadedTimeMs?: number,
@@ -10,16 +11,20 @@ export interface RecordUploadedRequestBody {
 export let RECORD_UPLOADED_REQUEST_BODY: MessageDescriptor<RecordUploadedRequestBody> = {
   name: 'RecordUploadedRequestBody',
   fields: [{
-    name: 'name',
+    name: 'accountId',
     index: 1,
     primitiveType: PrimitiveType.STRING,
   }, {
-    name: 'uploadedBytes',
+    name: 'name',
     index: 2,
+    primitiveType: PrimitiveType.STRING,
+  }, {
+    name: 'uploadedBytes',
+    index: 3,
     primitiveType: PrimitiveType.NUMBER,
   }, {
     name: 'uploadedTimeMs',
-    index: 3,
+    index: 4,
     primitiveType: PrimitiveType.NUMBER,
   }],
 };
@@ -33,6 +38,7 @@ export let RECORD_UPLOADED_RESPONSE: MessageDescriptor<RecordUploadedResponse> =
 };
 
 export interface RecordStorageStartRequestBody {
+  accountId?: string,
   name?: string,
   storageBytes?: number,
   storageStartMs?: number,
@@ -41,16 +47,20 @@ export interface RecordStorageStartRequestBody {
 export let RECORD_STORAGE_START_REQUEST_BODY: MessageDescriptor<RecordStorageStartRequestBody> = {
   name: 'RecordStorageStartRequestBody',
   fields: [{
-    name: 'name',
+    name: 'accountId',
     index: 1,
     primitiveType: PrimitiveType.STRING,
   }, {
-    name: 'storageBytes',
+    name: 'name',
     index: 2,
+    primitiveType: PrimitiveType.STRING,
+  }, {
+    name: 'storageBytes',
+    index: 3,
     primitiveType: PrimitiveType.NUMBER,
   }, {
     name: 'storageStartMs',
-    index: 3,
+    index: 4,
     primitiveType: PrimitiveType.NUMBER,
   }],
 };
@@ -64,6 +74,7 @@ export let RECORD_STORAGE_START_RESPONSE: MessageDescriptor<RecordStorageStartRe
 };
 
 export interface RecordStorageEndRequestBody {
+  accountId?: string,
   name?: string,
   storageEndMs?: number,
 }
@@ -71,12 +82,16 @@ export interface RecordStorageEndRequestBody {
 export let RECORD_STORAGE_END_REQUEST_BODY: MessageDescriptor<RecordStorageEndRequestBody> = {
   name: 'RecordStorageEndRequestBody',
   fields: [{
-    name: 'name',
+    name: 'accountId',
     index: 1,
     primitiveType: PrimitiveType.STRING,
   }, {
-    name: 'storageEndMs',
+    name: 'name',
     index: 2,
+    primitiveType: PrimitiveType.STRING,
+  }, {
+    name: 'storageEndMs',
+    index: 3,
     primitiveType: PrimitiveType.NUMBER,
   }],
 };

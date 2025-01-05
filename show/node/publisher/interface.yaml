@@ -1,40 +1,49 @@
 - kind: Message
   name: RecordUploadedRequestBody
   fields:
-    - name: name
+    - name: accountId
       type: string
       index: 1
+    - name: name
+      type: string
+      index: 2
     - name: uploadedBytes
       type: number
-      index: 2
+      index: 3
     - name: uploadedTimeMs
       type: number
-      index: 3
+      index: 4
 - kind: Message
   name: RecordUploadedResponse
 - kind: Message
   name: RecordStorageStartRequestBody
   fields:
-    - name: name
+    - name: accountId
       type: string
       index: 1
+    - name: name
+      type: string
+      index: 2
     - name: storageBytes
       type: number
-      index: 2
+      index: 3
     - name: storageStartMs
       type: number
-      index: 3
+      index: 4
 - kind: Message
   name: RecordStorageStartResponse
 - kind: Message
   name: RecordStorageEndRequestBody
   fields:
-    - name: name
+    - name: accountId
       type: string
       index: 1
+    - name: name
+      type: string
+      index: 2
     - name: storageEndMs
       type: number
-      index: 2
+      index: 3
 - kind: Message
   name: RecordStorageEndResponse
 - kind: Message
