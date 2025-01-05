@@ -1,12 +1,12 @@
 import { PrimitiveType, MessageDescriptor } from '@selfage/message/descriptor';
 import { NodeRemoteCallDescriptor } from '@selfage/service_descriptor';
 
-export interface GetDailyBatchRequestBody {
+export interface GetDailyWatchBatchRequestBody {
   cursor?: string,
 }
 
-export let GET_DAILY_BATCH_REQUEST_BODY: MessageDescriptor<GetDailyBatchRequestBody> = {
-  name: 'GetDailyBatchRequestBody',
+export let GET_DAILY_WATCH_BATCH_REQUEST_BODY: MessageDescriptor<GetDailyWatchBatchRequestBody> = {
+  name: 'GetDailyWatchBatchRequestBody',
   fields: [{
     name: 'cursor',
     index: 1,
@@ -14,13 +14,13 @@ export let GET_DAILY_BATCH_REQUEST_BODY: MessageDescriptor<GetDailyBatchRequestB
   }],
 };
 
-export interface GetDailyBatchResponse {
+export interface GetDailyWatchBatchResponse {
   rowKeys?: Array<string>,
   cursor?: string,
 }
 
-export let GET_DAILY_BATCH_RESPONSE: MessageDescriptor<GetDailyBatchResponse> = {
-  name: 'GetDailyBatchResponse',
+export let GET_DAILY_WATCH_BATCH_RESPONSE: MessageDescriptor<GetDailyWatchBatchResponse> = {
+  name: 'GetDailyWatchBatchResponse',
   fields: [{
     name: 'rowKeys',
     index: 1,
@@ -33,12 +33,12 @@ export let GET_DAILY_BATCH_RESPONSE: MessageDescriptor<GetDailyBatchResponse> = 
   }],
 };
 
-export interface ProcessDailyMeterReadingRequestBody {
+export interface ProcessDailyWatchReadingRequestBody {
   rowKey?: string,
 }
 
-export let PROCESS_DAILY_METER_READING_REQUEST_BODY: MessageDescriptor<ProcessDailyMeterReadingRequestBody> = {
-  name: 'ProcessDailyMeterReadingRequestBody',
+export let PROCESS_DAILY_WATCH_READING_REQUEST_BODY: MessageDescriptor<ProcessDailyWatchReadingRequestBody> = {
+  name: 'ProcessDailyWatchReadingRequestBody',
   fields: [{
     name: 'rowKey',
     index: 1,
@@ -46,27 +46,64 @@ export let PROCESS_DAILY_METER_READING_REQUEST_BODY: MessageDescriptor<ProcessDa
   }],
 };
 
-export interface ProcessDailyMeterReadingResponse {
+export interface ProcessDailyWatchReadingResponse {
 }
 
-export let PROCESS_DAILY_METER_READING_RESPONSE: MessageDescriptor<ProcessDailyMeterReadingResponse> = {
-  name: 'ProcessDailyMeterReadingResponse',
+export let PROCESS_DAILY_WATCH_READING_RESPONSE: MessageDescriptor<ProcessDailyWatchReadingResponse> = {
+  name: 'ProcessDailyWatchReadingResponse',
   fields: [],
 };
 
-export interface LoadPublishersToProcessMonthlyRequestBody {
+export interface GetDailyStorageBatchRequestBody {
+  cursor?: string,
 }
 
-export let LOAD_PUBLISHERS_TO_PROCESS_MONTHLY_REQUEST_BODY: MessageDescriptor<LoadPublishersToProcessMonthlyRequestBody> = {
-  name: 'LoadPublishersToProcessMonthlyRequestBody',
-  fields: [],
+export let GET_DAILY_STORAGE_BATCH_REQUEST_BODY: MessageDescriptor<GetDailyStorageBatchRequestBody> = {
+  name: 'GetDailyStorageBatchRequestBody',
+  fields: [{
+    name: 'cursor',
+    index: 1,
+    primitiveType: PrimitiveType.STRING,
+  }],
 };
 
-export interface LoadPublishersToProcessMonthlyResponse {
+export interface GetDailyStorageBatchResponse {
+  rowKeys?: Array<string>,
+  cursor?: string,
 }
 
-export let LOAD_PUBLISHERS_TO_PROCESS_MONTHLY_RESPONSE: MessageDescriptor<LoadPublishersToProcessMonthlyResponse> = {
-  name: 'LoadPublishersToProcessMonthlyResponse',
+export let GET_DAILY_STORAGE_BATCH_RESPONSE: MessageDescriptor<GetDailyStorageBatchResponse> = {
+  name: 'GetDailyStorageBatchResponse',
+  fields: [{
+    name: 'rowKeys',
+    index: 1,
+    primitiveType: PrimitiveType.STRING,
+    isArray: true,
+  }, {
+    name: 'cursor',
+    index: 2,
+    primitiveType: PrimitiveType.STRING,
+  }],
+};
+
+export interface ProcessDailyStorageReadingRequestBody {
+  rowKey?: string,
+}
+
+export let PROCESS_DAILY_STORAGE_READING_REQUEST_BODY: MessageDescriptor<ProcessDailyStorageReadingRequestBody> = {
+  name: 'ProcessDailyStorageReadingRequestBody',
+  fields: [{
+    name: 'rowKey',
+    index: 1,
+    primitiveType: PrimitiveType.STRING,
+  }],
+};
+
+export interface ProcessDailyStorageReadingResponse {
+}
+
+export let PROCESS_DAILY_STORAGE_READING_RESPONSE: MessageDescriptor<ProcessDailyStorageReadingResponse> = {
+  name: 'ProcessDailyStorageReadingResponse',
   fields: [],
 };
 
@@ -123,36 +160,47 @@ export let PROCESS_MONTHLY_METER_READING_RESPONSE: MessageDescriptor<ProcessMont
   fields: [],
 };
 
-export let GET_DAILY_BATCH: NodeRemoteCallDescriptor = {
-  name: "GetDailyBatch",
-  path: "/GetDailyBatch",
+export let GET_DAILY_WATCH_BATCH: NodeRemoteCallDescriptor = {
+  name: "GetDailyWatchBatch",
+  path: "/GetDailyWatchBatch",
   body: {
-    messageType: GET_DAILY_BATCH_REQUEST_BODY,
+    messageType: GET_DAILY_WATCH_BATCH_REQUEST_BODY,
   },
   response: {
-    messageType: GET_DAILY_BATCH_RESPONSE,
+    messageType: GET_DAILY_WATCH_BATCH_RESPONSE,
   },
 }
 
-export let PROCESS_DAILY_METER_READING: NodeRemoteCallDescriptor = {
-  name: "ProcessDailyMeterReading",
-  path: "/ProcessDailyMeterReading",
+export let PROCESS_DAILY_WATCH_READING: NodeRemoteCallDescriptor = {
+  name: "ProcessDailyWatchReading",
+  path: "/ProcessDailyWatchReading",
   body: {
-    messageType: PROCESS_DAILY_METER_READING_REQUEST_BODY,
+    messageType: PROCESS_DAILY_WATCH_READING_REQUEST_BODY,
   },
   response: {
-    messageType: PROCESS_DAILY_METER_READING_RESPONSE,
+    messageType: PROCESS_DAILY_WATCH_READING_RESPONSE,
   },
 }
 
-export let LOAD_PUBLISHERS_TO_PROCESS_MONTHLY: NodeRemoteCallDescriptor = {
-  name: "LoadPublishersToProcessMonthly",
-  path: "/LoadPublishersToProcessMonthly",
+export let GET_DAILY_STORAGE_BATCH: NodeRemoteCallDescriptor = {
+  name: "GetDailyStorageBatch",
+  path: "/GetDailyStorageBatch",
   body: {
-    messageType: LOAD_PUBLISHERS_TO_PROCESS_MONTHLY_REQUEST_BODY,
+    messageType: GET_DAILY_STORAGE_BATCH_REQUEST_BODY,
   },
   response: {
-    messageType: LOAD_PUBLISHERS_TO_PROCESS_MONTHLY_RESPONSE,
+    messageType: GET_DAILY_STORAGE_BATCH_RESPONSE,
+  },
+}
+
+export let PROCESS_DAILY_STORAGE_READING: NodeRemoteCallDescriptor = {
+  name: "ProcessDailyStorageReading",
+  path: "/ProcessDailyStorageReading",
+  body: {
+    messageType: PROCESS_DAILY_STORAGE_READING_REQUEST_BODY,
+  },
+  response: {
+    messageType: PROCESS_DAILY_STORAGE_READING_RESPONSE,
   },
 }
 

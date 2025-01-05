@@ -1,42 +1,56 @@
-import { GetDailyBatchRequestBody, GetDailyBatchResponse, GET_DAILY_BATCH, ProcessDailyMeterReadingRequestBody, ProcessDailyMeterReadingResponse, PROCESS_DAILY_METER_READING, LoadPublishersToProcessMonthlyRequestBody, LoadPublishersToProcessMonthlyResponse, LOAD_PUBLISHERS_TO_PROCESS_MONTHLY, GetMonthlyBatchRequestBody, GetMonthlyBatchResponse, GET_MONTHLY_BATCH, ProcessMonthlyMeterReadingRequestBody, ProcessMonthlyMeterReadingResponse, PROCESS_MONTHLY_METER_READING } from './interface';
+import { GetDailyWatchBatchRequestBody, GetDailyWatchBatchResponse, GET_DAILY_WATCH_BATCH, ProcessDailyWatchReadingRequestBody, ProcessDailyWatchReadingResponse, PROCESS_DAILY_WATCH_READING, GetDailyStorageBatchRequestBody, GetDailyStorageBatchResponse, GET_DAILY_STORAGE_BATCH, ProcessDailyStorageReadingRequestBody, ProcessDailyStorageReadingResponse, PROCESS_DAILY_STORAGE_READING, GetMonthlyBatchRequestBody, GetMonthlyBatchResponse, GET_MONTHLY_BATCH, ProcessMonthlyMeterReadingRequestBody, ProcessMonthlyMeterReadingResponse, PROCESS_MONTHLY_METER_READING } from './interface';
 import { NodeClientInterface, NodeClientOptions } from '@selfage/service_descriptor/client_interface';
 
-export function getDailyBatch(
+export function getDailyWatchBatch(
   client: NodeClientInterface,
-  body: GetDailyBatchRequestBody,
+  body: GetDailyWatchBatchRequestBody,
   options?: NodeClientOptions,
-): Promise<GetDailyBatchResponse> {
+): Promise<GetDailyWatchBatchResponse> {
   return client.send(
     {
-      descriptor: GET_DAILY_BATCH,
+      descriptor: GET_DAILY_WATCH_BATCH,
       body,
     },
     options,
   );
 }
 
-export function processDailyMeterReading(
+export function processDailyWatchReading(
   client: NodeClientInterface,
-  body: ProcessDailyMeterReadingRequestBody,
+  body: ProcessDailyWatchReadingRequestBody,
   options?: NodeClientOptions,
-): Promise<ProcessDailyMeterReadingResponse> {
+): Promise<ProcessDailyWatchReadingResponse> {
   return client.send(
     {
-      descriptor: PROCESS_DAILY_METER_READING,
+      descriptor: PROCESS_DAILY_WATCH_READING,
       body,
     },
     options,
   );
 }
 
-export function loadPublishersToProcessMonthly(
+export function getDailyStorageBatch(
   client: NodeClientInterface,
-  body: LoadPublishersToProcessMonthlyRequestBody,
+  body: GetDailyStorageBatchRequestBody,
   options?: NodeClientOptions,
-): Promise<LoadPublishersToProcessMonthlyResponse> {
+): Promise<GetDailyStorageBatchResponse> {
   return client.send(
     {
-      descriptor: LOAD_PUBLISHERS_TO_PROCESS_MONTHLY,
+      descriptor: GET_DAILY_STORAGE_BATCH,
+      body,
+    },
+    options,
+  );
+}
+
+export function processDailyStorageReading(
+  client: NodeClientInterface,
+  body: ProcessDailyStorageReadingRequestBody,
+  options?: NodeClientOptions,
+): Promise<ProcessDailyStorageReadingResponse> {
+  return client.send(
+    {
+      descriptor: PROCESS_DAILY_STORAGE_READING,
       body,
     },
     options,

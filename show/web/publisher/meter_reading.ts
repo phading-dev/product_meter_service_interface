@@ -1,25 +1,7 @@
 import { PrimitiveType, MessageDescriptor } from '@selfage/message/descriptor';
 
-export interface SeasonSummary {
-  seasonId?: string,
-  seasonName?: string,
-}
-
-export let SEASON_SUMMARY: MessageDescriptor<SeasonSummary> = {
-  name: 'SeasonSummary',
-  fields: [{
-    name: 'seasonId',
-    index: 1,
-    primitiveType: PrimitiveType.STRING,
-  }, {
-    name: 'seasonName',
-    index: 2,
-    primitiveType: PrimitiveType.STRING,
-  }],
-};
-
 export interface MeterReadingPerSeason {
-  season?: SeasonSummary,
+  seasonId?: string,
   watchTimeSec?: number,
   watchTimeSecGraded?: number,
 }
@@ -27,9 +9,9 @@ export interface MeterReadingPerSeason {
 export let METER_READING_PER_SEASON: MessageDescriptor<MeterReadingPerSeason> = {
   name: 'MeterReadingPerSeason',
   fields: [{
-    name: 'season',
+    name: 'seasonId',
     index: 1,
-    messageType: SEASON_SUMMARY,
+    primitiveType: PrimitiveType.STRING,
   }, {
     name: 'watchTimeSec',
     index: 2,
@@ -45,6 +27,8 @@ export interface MeterReadingPerDay {
   date?: string,
   watchTimeSecGraded?: number,
   transmittedKb?: number,
+  uploadedKb?: number,
+  storageMbm?: number,
 }
 
 export let METER_READING_PER_DAY: MessageDescriptor<MeterReadingPerDay> = {
@@ -61,6 +45,14 @@ export let METER_READING_PER_DAY: MessageDescriptor<MeterReadingPerDay> = {
     name: 'transmittedKb',
     index: 3,
     primitiveType: PrimitiveType.NUMBER,
+  }, {
+    name: 'uploadedKb',
+    index: 4,
+    primitiveType: PrimitiveType.NUMBER,
+  }, {
+    name: 'storageMbm',
+    index: 5,
+    primitiveType: PrimitiveType.NUMBER,
   }],
 };
 
@@ -68,8 +60,8 @@ export interface MeterReadingPerMonth {
   month?: string,
   watchTimeSecGraded?: number,
   transmittedMb?: number,
+  uploadedMb?: number,
   storageMbh?: number,
-  uploadMb?: number,
 }
 
 export let METER_READING_PER_MONTH: MessageDescriptor<MeterReadingPerMonth> = {
@@ -87,11 +79,11 @@ export let METER_READING_PER_MONTH: MessageDescriptor<MeterReadingPerMonth> = {
     index: 3,
     primitiveType: PrimitiveType.NUMBER,
   }, {
-    name: 'storageMbh',
+    name: 'uploadedMb',
     index: 4,
     primitiveType: PrimitiveType.NUMBER,
   }, {
-    name: 'uploadMb',
+    name: 'storageMbh',
     index: 5,
     primitiveType: PrimitiveType.NUMBER,
   }],

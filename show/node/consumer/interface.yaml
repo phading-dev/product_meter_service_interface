@@ -1,70 +1,69 @@
-- message:
-    name: GetDailyBatchRequestBody
-    fields:
-      - name: cursor
-        type: string
-        index: 1
-- message:
-    name: GetDailyBatchResponse
-    fields:
-      - name: rowKeys
-        type: string
-        isArray: true
-        index: 1
-      - name: cursor
-        type: string
-        index: 2
-- message:
-    name: ProcessDailyMeterReadingRequestBody
-    fields: 
-      - name: rowKey
-        type: string
-        index: 1
-- message:
-    name: ProcessDailyMeterReadingResponse
-- message:
-    name: GetMonthlyBatchRequestBody
-    fields:
-      - name: cursor
-        type: string
-        index: 1
-- message:
-    name: GetMonthlyBatchResponse
-    fields:
-      - name: rowKeys
-        type: string
-        isArray: true
-        index: 1
-      - name: cursor
-        type: string
-        index: 2
-
-- message:
-    name: ProcessMonthlyMeterReadingRequestBody
-    fields: 
-      - name: rowKey
-        type: string
-        index: 1
-- message:
-    name: ProcessMonthlyMeterReadingResponse
-- nodeService:
-    name: ProductMeterShowNodeConsumerService
-    remoteCalls:
-      - name: GetDailyBatch
-        path: /GetDailyBatch
-        body: GetDailyBatchRequestBody
-        response: GetDailyBatchResponse
-      - name: ProcessDailyMeterReading
-        path: /ProcessDailyMeterReading
-        body: ProcessDailyMeterReadingRequestBody
-        response: ProcessDailyMeterReadingResponse
-      - name: GetMonthlyBatch
-        path: /GetMonthlyBatch
-        body: GetMonthlyBatchRequestBody
-        response: GetMonthlyBatchResponse
-      - name: ProcessMonthlyMeterReading
-        path: /ProcessMonthlyMeterReading
-        body: ProcessMonthlyMeterReadingRequestBody
-        response: ProcessMonthlyMeterReadingResponse
-    outputClient: ./show/node/consumer/client
-    outputHandler: ./show/node/consumer/handler
+- kind: Message
+  name: GetDailyBatchRequestBody
+  fields:
+    - name: cursor
+      type: string
+      index: 1
+- kind: Message
+  name: GetDailyBatchResponse
+  fields:
+    - name: rowKeys
+      type: string
+      isArray: true
+      index: 1
+    - name: cursor
+      type: string
+      index: 2
+- kind: Message
+  name: ProcessDailyMeterReadingRequestBody
+  fields: 
+    - name: rowKey
+      type: string
+      index: 1
+- kind: Message
+  name: ProcessDailyMeterReadingResponse
+- kind: Message
+  name: GetMonthlyBatchRequestBody
+  fields:
+    - name: cursor
+      type: string
+      index: 1
+- kind: Message
+  name: GetMonthlyBatchResponse
+  fields:
+    - name: rowKeys
+      type: string
+      isArray: true
+      index: 1
+    - name: cursor
+      type: string
+      index: 2
+- kind: Message
+  name: ProcessMonthlyMeterReadingRequestBody
+  fields: 
+    - name: rowKey
+      type: string
+      index: 1
+- kind: Message
+  name: ProcessMonthlyMeterReadingResponse
+- kind: NodeService
+  name: ProductMeterShowNodeConsumerService
+  remoteCalls:
+    - name: GetDailyBatch
+      path: /GetDailyBatch
+      body: GetDailyBatchRequestBody
+      response: GetDailyBatchResponse
+    - name: ProcessDailyMeterReading
+      path: /ProcessDailyMeterReading
+      body: ProcessDailyMeterReadingRequestBody
+      response: ProcessDailyMeterReadingResponse
+    - name: GetMonthlyBatch
+      path: /GetMonthlyBatch
+      body: GetMonthlyBatchRequestBody
+      response: GetMonthlyBatchResponse
+    - name: ProcessMonthlyMeterReading
+      path: /ProcessMonthlyMeterReading
+      body: ProcessMonthlyMeterReadingRequestBody
+      response: ProcessMonthlyMeterReadingResponse
+  outputClient: ./show/node/consumer/client
+  outputHandler: ./show/node/consumer/handler

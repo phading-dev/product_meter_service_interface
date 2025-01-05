@@ -1,68 +1,122 @@
-- message:
-    name: ListMeterReadingPerSeasonRequestBody
-    fields:
-      - name: date # ISO string
-        type: string
-        index: 1
-- message:
-    name: ListMeterReadingPerSeasonResponse
-    fields:
-      - name: readings
-        type: MeterReadingPerSeason
-        import: ./show/web/publisher/meter_reading
-        isArray: true
-        index: 1
-- message:
-    name: ListMeterReadingsPerDayRequestBody
-    fields:
-      - name: startDate # ISO string. Inclusive.
-        type: string
-        index: 1
-      - name: endDate # ISO string. Inclusive.
-        type: string
-        index: 2
-- message:
-    name: ListMeterReadingsPerDayResponse
-    fields:
-      - name: readings
-        type: MeterReadingPerDay
-        import: ./show/web/publisher/meter_reading
-        isArray: true
-        index: 1
-- message:
-    name: ListMeterReadingsPerMonthRequestBody
-    fields:
-      - name: startMonth # ISO string. Inclusive.
-        type: string
-        index: 1
-      - name: endMonth # ISO string Inclusive.
-        type: string
-        index: 2
-- message:
-    name: ListMeterReadingsPerMonthResponse
-    fields:
-      - name: readings
-        type: MeterReadingPerMonth
-        import: ./show/web/publisher/meter_reading
-        isArray: true
-        index: 1
-- webService:
-    name: ProductMeterShowWebPublisherService
-    remoteCalls:
-      - name: ListMeterReadingPerSeason
-        path: /ListMeterReadingPerSeason
-        body: ListMeterReadingPerSeasonRequestBody
-        sessionKey: sk
-        response: ListMeterReadingPerSeasonResponse
-      - name: ListMeterReadingsPerDay
-        path: /ListMeterReadingsPerDay
-        body: ListMeterReadingsPerDayRequestBody
-        sessionKey: sk
-        response: ListMeterReadingsPerDayResponse
-      - name: ListMeterReadingsPerMonth
-        path: /ListMeterReadingsPerMonth
-        body: ListMeterReadingsPerMonthRequestBody
-        sessionKey: sk
-        response: ListMeterReadingsPerMonthResponse
-    outputClient: ./show/web/publisher/client
-    outputHandler: ./show/web/publisher/handler
+- kind: Message
+  name: RecordUploadedRequestBody
+  fields:
+    - name: name
+      type: string
+      index: 1
+    - name: uploadedBytes
+      type: number
+      index: 2
+    - name: uploadedTimeMs
+      type: number
+      index: 3
+- kind: Message
+  name: RecordUploadedResponse
+- kind: Message
+  name: RecordStorageStartRequestBody
+  fields:
+    - name: name
+      type: string
+      index: 1
+    - name: storageBytes
+      type: number
+      index: 2
+    - name: storageStartMs
+      type: number
+      index: 3
+- kind: Message
+  name: RecordStorageStartResponse
+- kind: Message
+  name: RecordStorageEndRequestBody
+  fields:
+    - name: name
+      type: string
+      index: 1
+    - name: storageEndMs
+      type: number
+      index: 2
+- kind: Message
+  name: RecordStorageEndResponse
+- kind: Message
+  name: ListMeterReadingPerSeasonRequestBody
+  fields:
+    - name: date # ISO string
+      type: string
+      index: 1
+- kind: Message
+  name: ListMeterReadingPerSeasonResponse
+  fields:
+    - name: readings
+      type: MeterReadingPerSeason
+      import: ./show/web/publisher/meter_reading
+      isArray: true
+      index: 1
+- kind: Message
+  name: ListMeterReadingsPerDayRequestBody
+  fields:
+    - name: startDate # ISO string. Inclusive.
+      type: string
+      index: 1
+    - name: endDate # ISO string. Inclusive.
+      type: string
+      index: 2
+- kind: Message
+  name: ListMeterReadingsPerDayResponse
+  fields:
+    - name: readings
+      type: MeterReadingPerDay
+      import: ./show/web/publisher/meter_reading
+      isArray: true
+      index: 1
+- kind: Message
+  name: ListMeterReadingsPerMonthRequestBody
+  fields:
+    - name: startMonth # ISO string. Inclusive.
+      type: string
+      index: 1
+    - name: endMonth # ISO string Inclusive.
+      type: string
+      index: 2
+- kind: Message
+  name: ListMeterReadingsPerMonthResponse
+  fields:
+    - name: readings
+      type: MeterReadingPerMonth
+      import: ./show/web/publisher/meter_reading
+      isArray: true
+      index: 1
+- kind: WebService
+  name: ProductMeterShowWebPublisherService
+  remoteCalls:
+    - name: RecordUploaded
+      path: /RecordUploaded
+      body: RecordUploadedRequestBody
+      sessionKey: sk
+      response: RecordUploadedResponse
+    - name: RecordStorageStart
+      path: /RecordStorageStart
+      body: RecordStorageStartRequestBody
+      sessionKey: sk
+      response: RecordStorageStartResponse
+    - name: RecordStorageEnd
+      path: /RecordStorageEnd
+      body: RecordStorageEndRequestBody
+      sessionKey: sk
+      response: RecordStorageEndResponse
+    - name: ListMeterReadingPerSeason
+      path: /ListMeterReadingPerSeason
+      body: ListMeterReadingPerSeasonRequestBody
+      sessionKey: sk
+      response: ListMeterReadingPerSeasonResponse
+    - name: ListMeterReadingsPerDay
+      path: /ListMeterReadingsPerDay
+      body: ListMeterReadingsPerDayRequestBody
+      sessionKey: sk
+      response: ListMeterReadingsPerDayResponse
+    - name: ListMeterReadingsPerMonth
+      path: /ListMeterReadingsPerMonth
+      body: ListMeterReadingsPerMonthRequestBody
+      sessionKey: sk
+      response: ListMeterReadingsPerMonthResponse
+  outputClient: ./show/web/publisher/client
+  outputHandler: ./show/web/publisher/handler

@@ -1,25 +1,7 @@
 import { PrimitiveType, MessageDescriptor } from '@selfage/message/descriptor';
 
-export interface SeasonSummary {
-  seasonId?: string,
-  seasonName?: string,
-}
-
-export let SEASON_SUMMARY: MessageDescriptor<SeasonSummary> = {
-  name: 'SeasonSummary',
-  fields: [{
-    name: 'seasonId',
-    index: 1,
-    primitiveType: PrimitiveType.STRING,
-  }, {
-    name: 'seasonName',
-    index: 2,
-    primitiveType: PrimitiveType.STRING,
-  }],
-};
-
 export interface MeterReadingPerSeason {
-  season?: SeasonSummary,
+  seasonId?: string,
   watchTimeSec?: number,
   watchTimeSecGraded?: number,
 }
@@ -27,9 +9,9 @@ export interface MeterReadingPerSeason {
 export let METER_READING_PER_SEASON: MessageDescriptor<MeterReadingPerSeason> = {
   name: 'MeterReadingPerSeason',
   fields: [{
-    name: 'season',
+    name: 'seasonId',
     index: 1,
-    messageType: SEASON_SUMMARY,
+    primitiveType: PrimitiveType.STRING,
   }, {
     name: 'watchTimeSec',
     index: 2,

@@ -2,14 +2,14 @@ import { PrimitiveType, MessageDescriptor } from '@selfage/message/descriptor';
 import { MeterReadingPerSeason, METER_READING_PER_SEASON, MeterReadingPerDay, METER_READING_PER_DAY, MeterReadingPerMonth, METER_READING_PER_MONTH } from './meter_reading';
 import { WebRemoteCallDescriptor } from '@selfage/service_descriptor';
 
-export interface SyncMeterReadingRequestBody {
+export interface RecordWatchTimeRequestBody {
   seasonId?: string,
   episodeId?: string,
   watchTimeMs?: number,
 }
 
-export let SYNC_METER_READING_REQUEST_BODY: MessageDescriptor<SyncMeterReadingRequestBody> = {
-  name: 'SyncMeterReadingRequestBody',
+export let RECORD_WATCH_TIME_REQUEST_BODY: MessageDescriptor<RecordWatchTimeRequestBody> = {
+  name: 'RecordWatchTimeRequestBody',
   fields: [{
     name: 'seasonId',
     index: 1,
@@ -25,11 +25,42 @@ export let SYNC_METER_READING_REQUEST_BODY: MessageDescriptor<SyncMeterReadingRe
   }],
 };
 
-export interface SyncMeterReadingResponse {
+export interface RecordWatchTimeResponse {
 }
 
-export let SYNC_METER_READING_RESPONSE: MessageDescriptor<SyncMeterReadingResponse> = {
-  name: 'SyncMeterReadingResponse',
+export let RECORD_WATCH_TIME_RESPONSE: MessageDescriptor<RecordWatchTimeResponse> = {
+  name: 'RecordWatchTimeResponse',
+  fields: [],
+};
+
+export interface RecordNetworkTransmissionRequestBody {
+  seasonId?: string,
+  episodeId?: string,
+  transmittedBytes?: number,
+}
+
+export let RECORD_NETWORK_TRANSMISSION_REQUEST_BODY: MessageDescriptor<RecordNetworkTransmissionRequestBody> = {
+  name: 'RecordNetworkTransmissionRequestBody',
+  fields: [{
+    name: 'seasonId',
+    index: 1,
+    primitiveType: PrimitiveType.STRING,
+  }, {
+    name: 'episodeId',
+    index: 2,
+    primitiveType: PrimitiveType.STRING,
+  }, {
+    name: 'transmittedBytes',
+    index: 3,
+    primitiveType: PrimitiveType.NUMBER,
+  }],
+};
+
+export interface RecordNetworkTransmissionResponse {
+}
+
+export let RECORD_NETWORK_TRANSMISSION_RESPONSE: MessageDescriptor<RecordNetworkTransmissionResponse> = {
+  name: 'RecordNetworkTransmissionResponse',
   fields: [],
 };
 
@@ -124,15 +155,27 @@ export let LIST_METER_READINGS_PER_MONTH_RESPONSE: MessageDescriptor<ListMeterRe
   }],
 };
 
-export let SYNC_METER_READING: WebRemoteCallDescriptor = {
-  name: "SyncMeterReading",
-  path: "/SyncMeterReading",
+export let RECORD_WATCH_TIME: WebRemoteCallDescriptor = {
+  name: "RecordWatchTime",
+  path: "/RecordWatchTime",
   body: {
-    messageType: SYNC_METER_READING_REQUEST_BODY,
+    messageType: RECORD_WATCH_TIME_REQUEST_BODY,
   },
   sessionKey: "sk",
   response: {
-    messageType: SYNC_METER_READING_RESPONSE,
+    messageType: RECORD_WATCH_TIME_RESPONSE,
+  },
+}
+
+export let RECORD_NETWORK_TRANSMISSION: WebRemoteCallDescriptor = {
+  name: "RecordNetworkTransmission",
+  path: "/RecordNetworkTransmission",
+  body: {
+    messageType: RECORD_NETWORK_TRANSMISSION_REQUEST_BODY,
+  },
+  sessionKey: "sk",
+  response: {
+    messageType: RECORD_NETWORK_TRANSMISSION_RESPONSE,
   },
 }
 

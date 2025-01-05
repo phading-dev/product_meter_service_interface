@@ -1,13 +1,22 @@
-import { SyncMeterReadingRequestBody, SYNC_METER_READING, SyncMeterReadingResponse, ListMeterReadingPerSeasonRequestBody, LIST_METER_READING_PER_SEASON, ListMeterReadingPerSeasonResponse, ListMeterReadingsPerDayRequestBody, LIST_METER_READINGS_PER_DAY, ListMeterReadingsPerDayResponse, ListMeterReadingsPerMonthRequestBody, LIST_METER_READINGS_PER_MONTH, ListMeterReadingsPerMonthResponse } from './interface';
+import { RecordWatchTimeRequestBody, RECORD_WATCH_TIME, RecordWatchTimeResponse, RecordNetworkTransmissionRequestBody, RECORD_NETWORK_TRANSMISSION, RecordNetworkTransmissionResponse, ListMeterReadingPerSeasonRequestBody, LIST_METER_READING_PER_SEASON, ListMeterReadingPerSeasonResponse, ListMeterReadingsPerDayRequestBody, LIST_METER_READINGS_PER_DAY, ListMeterReadingsPerDayResponse, ListMeterReadingsPerMonthRequestBody, LIST_METER_READINGS_PER_MONTH, ListMeterReadingsPerMonthResponse } from './interface';
 import { WebHandlerInterface } from '@selfage/service_descriptor/handler_interface';
 
-export abstract class SyncMeterReadingHandlerInterface implements WebHandlerInterface {
-  public descriptor = SYNC_METER_READING;
+export abstract class RecordWatchTimeHandlerInterface implements WebHandlerInterface {
+  public descriptor = RECORD_WATCH_TIME;
   public abstract handle(
     loggingPrefix: string,
-    body: SyncMeterReadingRequestBody,
+    body: RecordWatchTimeRequestBody,
     sessionStr: string,
-  ): Promise<SyncMeterReadingResponse>;
+  ): Promise<RecordWatchTimeResponse>;
+}
+
+export abstract class RecordNetworkTransmissionHandlerInterface implements WebHandlerInterface {
+  public descriptor = RECORD_NETWORK_TRANSMISSION;
+  public abstract handle(
+    loggingPrefix: string,
+    body: RecordNetworkTransmissionRequestBody,
+    sessionStr: string,
+  ): Promise<RecordNetworkTransmissionResponse>;
 }
 
 export abstract class ListMeterReadingPerSeasonHandlerInterface implements WebHandlerInterface {

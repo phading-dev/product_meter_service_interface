@@ -1,17 +1,17 @@
-- message:
-    name: GetTimezoneOffsetRequestBody
-- message:
-    name: GetTimezoneOffsetResponse
-    fields:
-      - name: negativeOffset
-        type: number
-        index: 1
-- nodeService:
-    name: ProductMeterNodeService
-    remoteCalls:
-      - name: GetTimezoneOffset
-        path: /GetTimezoneOffset
-        body: GetTimezoneOffsetRequestBody
-        response: GetTimezoneOffsetResponse
-    outputClient: ./node/client
-    outputHandler: ./node/handler
+- kind: Message
+  name: GetTimezoneOffsetRequestBody
+- knd: Message
+  name: GetTimezoneOffsetResponse
+  fields:
+    - name: negativeOffset
+      type: number
+      index: 1
+- kind: NodeService
+  name: ProductMeterNodeService
+  remoteCalls:
+    - name: GetTimezoneOffset
+      path: /GetTimezoneOffset
+      body: GetTimezoneOffsetRequestBody
+      response: GetTimezoneOffsetResponse
+  outputClient: ./node/client
+  outputHandler: ./node/handler

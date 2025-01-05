@@ -1,28 +1,36 @@
-import { GetDailyBatchRequestBody, GET_DAILY_BATCH, GetDailyBatchResponse, ProcessDailyMeterReadingRequestBody, PROCESS_DAILY_METER_READING, ProcessDailyMeterReadingResponse, LoadPublishersToProcessMonthlyRequestBody, LOAD_PUBLISHERS_TO_PROCESS_MONTHLY, LoadPublishersToProcessMonthlyResponse, GetMonthlyBatchRequestBody, GET_MONTHLY_BATCH, GetMonthlyBatchResponse, ProcessMonthlyMeterReadingRequestBody, PROCESS_MONTHLY_METER_READING, ProcessMonthlyMeterReadingResponse } from './interface';
+import { GetDailyWatchBatchRequestBody, GET_DAILY_WATCH_BATCH, GetDailyWatchBatchResponse, ProcessDailyWatchReadingRequestBody, PROCESS_DAILY_WATCH_READING, ProcessDailyWatchReadingResponse, GetDailyStorageBatchRequestBody, GET_DAILY_STORAGE_BATCH, GetDailyStorageBatchResponse, ProcessDailyStorageReadingRequestBody, PROCESS_DAILY_STORAGE_READING, ProcessDailyStorageReadingResponse, GetMonthlyBatchRequestBody, GET_MONTHLY_BATCH, GetMonthlyBatchResponse, ProcessMonthlyMeterReadingRequestBody, PROCESS_MONTHLY_METER_READING, ProcessMonthlyMeterReadingResponse } from './interface';
 import { NodeHandlerInterface } from '@selfage/service_descriptor/handler_interface';
 
-export abstract class GetDailyBatchHandlerInterface implements NodeHandlerInterface {
-  public descriptor = GET_DAILY_BATCH;
+export abstract class GetDailyWatchBatchHandlerInterface implements NodeHandlerInterface {
+  public descriptor = GET_DAILY_WATCH_BATCH;
   public abstract handle(
     loggingPrefix: string,
-    body: GetDailyBatchRequestBody,
-  ): Promise<GetDailyBatchResponse>;
+    body: GetDailyWatchBatchRequestBody,
+  ): Promise<GetDailyWatchBatchResponse>;
 }
 
-export abstract class ProcessDailyMeterReadingHandlerInterface implements NodeHandlerInterface {
-  public descriptor = PROCESS_DAILY_METER_READING;
+export abstract class ProcessDailyWatchReadingHandlerInterface implements NodeHandlerInterface {
+  public descriptor = PROCESS_DAILY_WATCH_READING;
   public abstract handle(
     loggingPrefix: string,
-    body: ProcessDailyMeterReadingRequestBody,
-  ): Promise<ProcessDailyMeterReadingResponse>;
+    body: ProcessDailyWatchReadingRequestBody,
+  ): Promise<ProcessDailyWatchReadingResponse>;
 }
 
-export abstract class LoadPublishersToProcessMonthlyHandlerInterface implements NodeHandlerInterface {
-  public descriptor = LOAD_PUBLISHERS_TO_PROCESS_MONTHLY;
+export abstract class GetDailyStorageBatchHandlerInterface implements NodeHandlerInterface {
+  public descriptor = GET_DAILY_STORAGE_BATCH;
   public abstract handle(
     loggingPrefix: string,
-    body: LoadPublishersToProcessMonthlyRequestBody,
-  ): Promise<LoadPublishersToProcessMonthlyResponse>;
+    body: GetDailyStorageBatchRequestBody,
+  ): Promise<GetDailyStorageBatchResponse>;
+}
+
+export abstract class ProcessDailyStorageReadingHandlerInterface implements NodeHandlerInterface {
+  public descriptor = PROCESS_DAILY_STORAGE_READING;
+  public abstract handle(
+    loggingPrefix: string,
+    body: ProcessDailyStorageReadingRequestBody,
+  ): Promise<ProcessDailyStorageReadingResponse>;
 }
 
 export abstract class GetMonthlyBatchHandlerInterface implements NodeHandlerInterface {
