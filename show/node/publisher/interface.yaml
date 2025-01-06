@@ -10,9 +10,6 @@
     - name: uploadedBytes
       type: number
       index: 3
-    - name: uploadedTimeMs
-      type: number
-      index: 4
 - kind: Message
   name: RecordUploadedResponse
 - kind: Message
@@ -124,17 +121,14 @@
     - name: RecordUploaded
       path: /RecordUploaded
       body: RecordUploadedRequestBody
-      sessionKey: sk
       response: RecordUploadedResponse
     - name: RecordStorageStart
       path: /RecordStorageStart
       body: RecordStorageStartRequestBody
-      sessionKey: sk
       response: RecordStorageStartResponse
     - name: RecordStorageEnd
       path: /RecordStorageEnd
       body: RecordStorageEndRequestBody
-      sessionKey: sk
       response: RecordStorageEndResponse
     - name: GetDailyWatchBatch
       path: /GetDailyWatchBatch

@@ -5,7 +5,6 @@ export interface RecordUploadedRequestBody {
   accountId?: string,
   name?: string,
   uploadedBytes?: number,
-  uploadedTimeMs?: number,
 }
 
 export let RECORD_UPLOADED_REQUEST_BODY: MessageDescriptor<RecordUploadedRequestBody> = {
@@ -21,10 +20,6 @@ export let RECORD_UPLOADED_REQUEST_BODY: MessageDescriptor<RecordUploadedRequest
   }, {
     name: 'uploadedBytes',
     index: 3,
-    primitiveType: PrimitiveType.NUMBER,
-  }, {
-    name: 'uploadedTimeMs',
-    index: 4,
     primitiveType: PrimitiveType.NUMBER,
   }],
 };
