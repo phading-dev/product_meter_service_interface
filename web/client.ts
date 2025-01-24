@@ -1,14 +1,14 @@
-import { GetTimezoneOffsetRequestBody, GetTimezoneOffsetResponse, GET_TIMEZONE_OFFSET } from './interface';
+import { GetTodayWrtTimezoneRequestBody, GetTodayWrtTimezoneResponse, GET_TODAY_WRT_TIMEZONE } from './interface';
 import { WebClientInterface, WebClientOptions } from '@selfage/service_descriptor/client_interface';
 
-export function getTimezoneOffset(
+export function getTodayWrtTimezone(
   client: WebClientInterface,
-  body: GetTimezoneOffsetRequestBody,
+  body: GetTodayWrtTimezoneRequestBody,
   options?: WebClientOptions,
-): Promise<GetTimezoneOffsetResponse> {
+): Promise<GetTodayWrtTimezoneResponse> {
   return client.send(
     {
-      descriptor: GET_TIMEZONE_OFFSET,
+      descriptor: GET_TODAY_WRT_TIMEZONE,
       body,
     },
     options,
