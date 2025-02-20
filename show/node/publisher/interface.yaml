@@ -115,9 +115,11 @@
       index: 1
 - kind: Message
   name: ProcessMonthlyMeterReadingResponse
-- kind: NodeService
-  name: ProductMeterShowNodePublisherService
-  remoteCalls:
+- kind: RemoteCallsGroup
+  name: ProductMeterShowNodePublisherRemoteCalls
+  service: ProductMeterNodeService
+  importService: ./service
+  calls:
     - name: RecordUploaded
       path: /RecordUploaded
       body: RecordUploadedRequestBody

@@ -1,58 +1,38 @@
 import { GetDailyBatchRequestBody, GetDailyBatchResponse, GET_DAILY_BATCH, ProcessDailyMeterReadingRequestBody, ProcessDailyMeterReadingResponse, PROCESS_DAILY_METER_READING, GetMonthlyBatchRequestBody, GetMonthlyBatchResponse, GET_MONTHLY_BATCH, ProcessMonthlyMeterReadingRequestBody, ProcessMonthlyMeterReadingResponse, PROCESS_MONTHLY_METER_READING } from './interface';
-import { NodeClientInterface, NodeClientOptions } from '@selfage/service_descriptor/client_interface';
+import { ClientRequestInterface } from '@selfage/service_descriptor/client_request_interface';
 
-export function getDailyBatch(
-  client: NodeClientInterface,
+export function newGetDailyBatchRequest(
   body: GetDailyBatchRequestBody,
-  options?: NodeClientOptions,
-): Promise<GetDailyBatchResponse> {
-  return client.send(
-    {
-      descriptor: GET_DAILY_BATCH,
-      body,
-    },
-    options,
-  );
+): ClientRequestInterface<GetDailyBatchResponse> {
+  return {
+    descriptor: GET_DAILY_BATCH,
+    body,
+  };
 }
 
-export function processDailyMeterReading(
-  client: NodeClientInterface,
+export function newProcessDailyMeterReadingRequest(
   body: ProcessDailyMeterReadingRequestBody,
-  options?: NodeClientOptions,
-): Promise<ProcessDailyMeterReadingResponse> {
-  return client.send(
-    {
-      descriptor: PROCESS_DAILY_METER_READING,
-      body,
-    },
-    options,
-  );
+): ClientRequestInterface<ProcessDailyMeterReadingResponse> {
+  return {
+    descriptor: PROCESS_DAILY_METER_READING,
+    body,
+  };
 }
 
-export function getMonthlyBatch(
-  client: NodeClientInterface,
+export function newGetMonthlyBatchRequest(
   body: GetMonthlyBatchRequestBody,
-  options?: NodeClientOptions,
-): Promise<GetMonthlyBatchResponse> {
-  return client.send(
-    {
-      descriptor: GET_MONTHLY_BATCH,
-      body,
-    },
-    options,
-  );
+): ClientRequestInterface<GetMonthlyBatchResponse> {
+  return {
+    descriptor: GET_MONTHLY_BATCH,
+    body,
+  };
 }
 
-export function processMonthlyMeterReading(
-  client: NodeClientInterface,
+export function newProcessMonthlyMeterReadingRequest(
   body: ProcessMonthlyMeterReadingRequestBody,
-  options?: NodeClientOptions,
-): Promise<ProcessMonthlyMeterReadingResponse> {
-  return client.send(
-    {
-      descriptor: PROCESS_MONTHLY_METER_READING,
-      body,
-    },
-    options,
-  );
+): ClientRequestInterface<ProcessMonthlyMeterReadingResponse> {
+  return {
+    descriptor: PROCESS_MONTHLY_METER_READING,
+    body,
+  };
 }

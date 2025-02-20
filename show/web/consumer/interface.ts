@@ -1,6 +1,7 @@
 import { PrimitiveType, MessageDescriptor } from '@selfage/message/descriptor';
 import { MeterReadingPerSeason, METER_READING_PER_SEASON, MeterReadingPerDay, METER_READING_PER_DAY, MeterReadingPerMonth, METER_READING_PER_MONTH } from './meter_reading';
-import { WebRemoteCallDescriptor } from '@selfage/service_descriptor';
+import { PRODUCT_METER_WEB_SERVICE } from '../../../service';
+import { RemoteCallDescriptor } from '@selfage/service_descriptor';
 
 export interface RecordWatchTimeRequestBody {
   seasonId?: string,
@@ -155,61 +156,66 @@ export let LIST_METER_READINGS_PER_MONTH_RESPONSE: MessageDescriptor<ListMeterRe
   }],
 };
 
-export let RECORD_WATCH_TIME: WebRemoteCallDescriptor = {
+export let RECORD_WATCH_TIME: RemoteCallDescriptor = {
   name: "RecordWatchTime",
+  service: PRODUCT_METER_WEB_SERVICE,
   path: "/RecordWatchTime",
   body: {
     messageType: RECORD_WATCH_TIME_REQUEST_BODY,
   },
-  sessionKey: "sk",
+  authKey: "sk",
   response: {
     messageType: RECORD_WATCH_TIME_RESPONSE,
   },
 }
 
-export let RECORD_NETWORK_TRANSMISSION: WebRemoteCallDescriptor = {
+export let RECORD_NETWORK_TRANSMISSION: RemoteCallDescriptor = {
   name: "RecordNetworkTransmission",
+  service: PRODUCT_METER_WEB_SERVICE,
   path: "/RecordNetworkTransmission",
   body: {
     messageType: RECORD_NETWORK_TRANSMISSION_REQUEST_BODY,
   },
-  sessionKey: "sk",
+  authKey: "sk",
   response: {
     messageType: RECORD_NETWORK_TRANSMISSION_RESPONSE,
   },
 }
 
-export let LIST_METER_READING_PER_SEASON: WebRemoteCallDescriptor = {
+export let LIST_METER_READING_PER_SEASON: RemoteCallDescriptor = {
   name: "ListMeterReadingPerSeason",
+  service: PRODUCT_METER_WEB_SERVICE,
   path: "/ListMeterReadingPerSeason",
   body: {
     messageType: LIST_METER_READING_PER_SEASON_REQUEST_BODY,
   },
-  sessionKey: "sk",
+  authKey: "sk",
   response: {
     messageType: LIST_METER_READING_PER_SEASON_RESPONSE,
   },
 }
 
-export let LIST_METER_READINGS_PER_DAY: WebRemoteCallDescriptor = {
+export let LIST_METER_READINGS_PER_DAY: RemoteCallDescriptor = {
   name: "ListMeterReadingsPerDay",
+  service: PRODUCT_METER_WEB_SERVICE,
   path: "/ListMeterReadingsPerDay",
   body: {
     messageType: LIST_METER_READINGS_PER_DAY_REQUEST_BODY,
   },
-  sessionKey: "sk",
+  authKey: "sk",
   response: {
     messageType: LIST_METER_READINGS_PER_DAY_RESPONSE,
   },
 }
 
-export let LIST_METER_READINGS_PER_MONTH: WebRemoteCallDescriptor = {
+export let LIST_METER_READINGS_PER_MONTH: RemoteCallDescriptor = {
   name: "ListMeterReadingsPerMonth",
+  service: PRODUCT_METER_WEB_SERVICE,
   path: "/ListMeterReadingsPerMonth",
   body: {
     messageType: LIST_METER_READINGS_PER_MONTH_REQUEST_BODY,
   },
-  sessionKey: "sk",
+  authKey: "sk",
   response: {
     messageType: LIST_METER_READINGS_PER_MONTH_RESPONSE,
   },

@@ -74,33 +74,35 @@
       import: ./show/web/consumer/meter_reading
       isArray: true
       index: 1
-- kind: WebService
-  name: ProductMeterShowWebConsumerService
-  remoteCalls:
+- kind: RemoteCallsGroup
+  name: ProductMeterShowWebConsumerRemoteCalls
+  service: ProductMeterWebService
+  importService: ./service
+  calls:
     - name: RecordWatchTime
       path: /RecordWatchTime
       body: RecordWatchTimeRequestBody
-      sessionKey: sk
+      authKey: sk
       response: RecordWatchTimeResponse
     - name: RecordNetworkTransmission
       path: /RecordNetworkTransmission
       body: RecordNetworkTransmissionRequestBody
-      sessionKey: sk
+      authKey: sk
       response: RecordNetworkTransmissionResponse
     - name: ListMeterReadingPerSeason
       path: /ListMeterReadingPerSeason
       body: ListMeterReadingPerSeasonRequestBody
-      sessionKey: sk
+      authKey: sk
       response: ListMeterReadingPerSeasonResponse
     - name: ListMeterReadingsPerDay
       path: /ListMeterReadingsPerDay
       body: ListMeterReadingsPerDayRequestBody
-      sessionKey: sk
+      authKey: sk
       response: ListMeterReadingsPerDayResponse
     - name: ListMeterReadingsPerMonth
       path: /ListMeterReadingsPerMonth
       body: ListMeterReadingsPerMonthRequestBody
-      sessionKey: sk
+      authKey: sk
       response: ListMeterReadingsPerMonthResponse
   outputClient: ./show/web/consumer/client
   outputHandler: ./show/web/consumer/handler

@@ -46,9 +46,11 @@
       index: 1
 - kind: Message
   name: ProcessMonthlyMeterReadingResponse
-- kind: NodeService
-  name: ProductMeterShowNodeConsumerService
-  remoteCalls:
+- kind: RemoteCallsGroup
+  name: ProductMeterShowNodeConsumerRemoteCalls
+  service: ProductMeterNodeService
+  importService: ./service
+  calls:
     - name: GetDailyBatch
       path: /GetDailyBatch
       body: GetDailyBatchRequestBody

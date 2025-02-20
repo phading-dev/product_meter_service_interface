@@ -1,128 +1,83 @@
 import { RecordUploadedRequestBody, RecordUploadedResponse, RECORD_UPLOADED, RecordStorageStartRequestBody, RecordStorageStartResponse, RECORD_STORAGE_START, RecordStorageEndRequestBody, RecordStorageEndResponse, RECORD_STORAGE_END, GetDailyWatchBatchRequestBody, GetDailyWatchBatchResponse, GET_DAILY_WATCH_BATCH, ProcessDailyWatchReadingRequestBody, ProcessDailyWatchReadingResponse, PROCESS_DAILY_WATCH_READING, GetDailyStorageBatchRequestBody, GetDailyStorageBatchResponse, GET_DAILY_STORAGE_BATCH, ProcessDailyStorageReadingRequestBody, ProcessDailyStorageReadingResponse, PROCESS_DAILY_STORAGE_READING, GetMonthlyBatchRequestBody, GetMonthlyBatchResponse, GET_MONTHLY_BATCH, ProcessMonthlyMeterReadingRequestBody, ProcessMonthlyMeterReadingResponse, PROCESS_MONTHLY_METER_READING } from './interface';
-import { NodeClientInterface, NodeClientOptions } from '@selfage/service_descriptor/client_interface';
+import { ClientRequestInterface } from '@selfage/service_descriptor/client_request_interface';
 
-export function recordUploaded(
-  client: NodeClientInterface,
+export function newRecordUploadedRequest(
   body: RecordUploadedRequestBody,
-  options?: NodeClientOptions,
-): Promise<RecordUploadedResponse> {
-  return client.send(
-    {
-      descriptor: RECORD_UPLOADED,
-      body,
-    },
-    options,
-  );
+): ClientRequestInterface<RecordUploadedResponse> {
+  return {
+    descriptor: RECORD_UPLOADED,
+    body,
+  };
 }
 
-export function recordStorageStart(
-  client: NodeClientInterface,
+export function newRecordStorageStartRequest(
   body: RecordStorageStartRequestBody,
-  options?: NodeClientOptions,
-): Promise<RecordStorageStartResponse> {
-  return client.send(
-    {
-      descriptor: RECORD_STORAGE_START,
-      body,
-    },
-    options,
-  );
+): ClientRequestInterface<RecordStorageStartResponse> {
+  return {
+    descriptor: RECORD_STORAGE_START,
+    body,
+  };
 }
 
-export function recordStorageEnd(
-  client: NodeClientInterface,
+export function newRecordStorageEndRequest(
   body: RecordStorageEndRequestBody,
-  options?: NodeClientOptions,
-): Promise<RecordStorageEndResponse> {
-  return client.send(
-    {
-      descriptor: RECORD_STORAGE_END,
-      body,
-    },
-    options,
-  );
+): ClientRequestInterface<RecordStorageEndResponse> {
+  return {
+    descriptor: RECORD_STORAGE_END,
+    body,
+  };
 }
 
-export function getDailyWatchBatch(
-  client: NodeClientInterface,
+export function newGetDailyWatchBatchRequest(
   body: GetDailyWatchBatchRequestBody,
-  options?: NodeClientOptions,
-): Promise<GetDailyWatchBatchResponse> {
-  return client.send(
-    {
-      descriptor: GET_DAILY_WATCH_BATCH,
-      body,
-    },
-    options,
-  );
+): ClientRequestInterface<GetDailyWatchBatchResponse> {
+  return {
+    descriptor: GET_DAILY_WATCH_BATCH,
+    body,
+  };
 }
 
-export function processDailyWatchReading(
-  client: NodeClientInterface,
+export function newProcessDailyWatchReadingRequest(
   body: ProcessDailyWatchReadingRequestBody,
-  options?: NodeClientOptions,
-): Promise<ProcessDailyWatchReadingResponse> {
-  return client.send(
-    {
-      descriptor: PROCESS_DAILY_WATCH_READING,
-      body,
-    },
-    options,
-  );
+): ClientRequestInterface<ProcessDailyWatchReadingResponse> {
+  return {
+    descriptor: PROCESS_DAILY_WATCH_READING,
+    body,
+  };
 }
 
-export function getDailyStorageBatch(
-  client: NodeClientInterface,
+export function newGetDailyStorageBatchRequest(
   body: GetDailyStorageBatchRequestBody,
-  options?: NodeClientOptions,
-): Promise<GetDailyStorageBatchResponse> {
-  return client.send(
-    {
-      descriptor: GET_DAILY_STORAGE_BATCH,
-      body,
-    },
-    options,
-  );
+): ClientRequestInterface<GetDailyStorageBatchResponse> {
+  return {
+    descriptor: GET_DAILY_STORAGE_BATCH,
+    body,
+  };
 }
 
-export function processDailyStorageReading(
-  client: NodeClientInterface,
+export function newProcessDailyStorageReadingRequest(
   body: ProcessDailyStorageReadingRequestBody,
-  options?: NodeClientOptions,
-): Promise<ProcessDailyStorageReadingResponse> {
-  return client.send(
-    {
-      descriptor: PROCESS_DAILY_STORAGE_READING,
-      body,
-    },
-    options,
-  );
+): ClientRequestInterface<ProcessDailyStorageReadingResponse> {
+  return {
+    descriptor: PROCESS_DAILY_STORAGE_READING,
+    body,
+  };
 }
 
-export function getMonthlyBatch(
-  client: NodeClientInterface,
+export function newGetMonthlyBatchRequest(
   body: GetMonthlyBatchRequestBody,
-  options?: NodeClientOptions,
-): Promise<GetMonthlyBatchResponse> {
-  return client.send(
-    {
-      descriptor: GET_MONTHLY_BATCH,
-      body,
-    },
-    options,
-  );
+): ClientRequestInterface<GetMonthlyBatchResponse> {
+  return {
+    descriptor: GET_MONTHLY_BATCH,
+    body,
+  };
 }
 
-export function processMonthlyMeterReading(
-  client: NodeClientInterface,
+export function newProcessMonthlyMeterReadingRequest(
   body: ProcessMonthlyMeterReadingRequestBody,
-  options?: NodeClientOptions,
-): Promise<ProcessMonthlyMeterReadingResponse> {
-  return client.send(
-    {
-      descriptor: PROCESS_MONTHLY_METER_READING,
-      body,
-    },
-    options,
-  );
+): ClientRequestInterface<ProcessMonthlyMeterReadingResponse> {
+  return {
+    descriptor: PROCESS_MONTHLY_METER_READING,
+    body,
+  };
 }

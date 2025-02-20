@@ -1,5 +1,6 @@
 import { PrimitiveType, MessageDescriptor } from '@selfage/message/descriptor';
-import { NodeRemoteCallDescriptor } from '@selfage/service_descriptor';
+import { PRODUCT_METER_NODE_SERVICE } from '../../../service';
+import { RemoteCallDescriptor } from '@selfage/service_descriptor';
 
 export interface GetDailyBatchRequestBody {
   cursor?: string,
@@ -107,8 +108,9 @@ export let PROCESS_MONTHLY_METER_READING_RESPONSE: MessageDescriptor<ProcessMont
   fields: [],
 };
 
-export let GET_DAILY_BATCH: NodeRemoteCallDescriptor = {
+export let GET_DAILY_BATCH: RemoteCallDescriptor = {
   name: "GetDailyBatch",
+  service: PRODUCT_METER_NODE_SERVICE,
   path: "/GetDailyBatch",
   body: {
     messageType: GET_DAILY_BATCH_REQUEST_BODY,
@@ -118,8 +120,9 @@ export let GET_DAILY_BATCH: NodeRemoteCallDescriptor = {
   },
 }
 
-export let PROCESS_DAILY_METER_READING: NodeRemoteCallDescriptor = {
+export let PROCESS_DAILY_METER_READING: RemoteCallDescriptor = {
   name: "ProcessDailyMeterReading",
+  service: PRODUCT_METER_NODE_SERVICE,
   path: "/ProcessDailyMeterReading",
   body: {
     messageType: PROCESS_DAILY_METER_READING_REQUEST_BODY,
@@ -129,8 +132,9 @@ export let PROCESS_DAILY_METER_READING: NodeRemoteCallDescriptor = {
   },
 }
 
-export let GET_MONTHLY_BATCH: NodeRemoteCallDescriptor = {
+export let GET_MONTHLY_BATCH: RemoteCallDescriptor = {
   name: "GetMonthlyBatch",
+  service: PRODUCT_METER_NODE_SERVICE,
   path: "/GetMonthlyBatch",
   body: {
     messageType: GET_MONTHLY_BATCH_REQUEST_BODY,
@@ -140,8 +144,9 @@ export let GET_MONTHLY_BATCH: NodeRemoteCallDescriptor = {
   },
 }
 
-export let PROCESS_MONTHLY_METER_READING: NodeRemoteCallDescriptor = {
+export let PROCESS_MONTHLY_METER_READING: RemoteCallDescriptor = {
   name: "ProcessMonthlyMeterReading",
+  service: PRODUCT_METER_NODE_SERVICE,
   path: "/ProcessMonthlyMeterReading",
   body: {
     messageType: PROCESS_MONTHLY_METER_READING_REQUEST_BODY,

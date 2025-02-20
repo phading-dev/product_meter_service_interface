@@ -46,23 +46,25 @@
       import: ./show/web/publisher/meter_reading
       isArray: true
       index: 1
-- kind: WebService
-  name: ProductMeterShowWebPublisherService
-  remoteCalls:
+- kind: RemoteCallsGroup
+  name: ProductMeterShowWebPublisherRemoteCalls
+  service: ProductMeterWebService
+  importService: ./service
+  calls:
     - name: ListMeterReadingPerSeason
       path: /ListMeterReadingPerSeason
       body: ListMeterReadingPerSeasonRequestBody
-      sessionKey: sk
+      authKey: sk
       response: ListMeterReadingPerSeasonResponse
     - name: ListMeterReadingsPerDay
       path: /ListMeterReadingsPerDay
       body: ListMeterReadingsPerDayRequestBody
-      sessionKey: sk
+      authKey: sk
       response: ListMeterReadingsPerDayResponse
     - name: ListMeterReadingsPerMonth
       path: /ListMeterReadingsPerMonth
       body: ListMeterReadingsPerMonthRequestBody
-      sessionKey: sk
+      authKey: sk
       response: ListMeterReadingsPerMonthResponse
   outputClient: ./show/web/publisher/client
   outputHandler: ./show/web/publisher/handler
