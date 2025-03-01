@@ -163,7 +163,7 @@ export let RECORD_WATCH_TIME: RemoteCallDescriptor = {
   body: {
     messageType: RECORD_WATCH_TIME_REQUEST_BODY,
   },
-  authKey: "sk",
+  authKey: "a",
   response: {
     messageType: RECORD_WATCH_TIME_RESPONSE,
   },
@@ -176,7 +176,7 @@ export let RECORD_NETWORK_TRANSMISSION: RemoteCallDescriptor = {
   body: {
     messageType: RECORD_NETWORK_TRANSMISSION_REQUEST_BODY,
   },
-  authKey: "sk",
+  authKey: "a",
   response: {
     messageType: RECORD_NETWORK_TRANSMISSION_RESPONSE,
   },
@@ -189,7 +189,7 @@ export let LIST_METER_READING_PER_SEASON: RemoteCallDescriptor = {
   body: {
     messageType: LIST_METER_READING_PER_SEASON_REQUEST_BODY,
   },
-  authKey: "sk",
+  authKey: "a",
   response: {
     messageType: LIST_METER_READING_PER_SEASON_RESPONSE,
   },
@@ -202,7 +202,7 @@ export let LIST_METER_READINGS_PER_DAY: RemoteCallDescriptor = {
   body: {
     messageType: LIST_METER_READINGS_PER_DAY_REQUEST_BODY,
   },
-  authKey: "sk",
+  authKey: "a",
   response: {
     messageType: LIST_METER_READINGS_PER_DAY_RESPONSE,
   },
@@ -215,7 +215,7 @@ export let LIST_METER_READINGS_PER_MONTH: RemoteCallDescriptor = {
   body: {
     messageType: LIST_METER_READINGS_PER_MONTH_REQUEST_BODY,
   },
-  authKey: "sk",
+  authKey: "a",
   response: {
     messageType: LIST_METER_READINGS_PER_MONTH_RESPONSE,
   },

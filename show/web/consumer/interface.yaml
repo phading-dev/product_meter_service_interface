@@ -82,27 +82,27 @@
     - name: RecordWatchTime
       path: /RecordWatchTime
       body: RecordWatchTimeRequestBody
-      authKey: sk
+      authKey: a
       response: RecordWatchTimeResponse
     - name: RecordNetworkTransmission
       path: /RecordNetworkTransmission
       body: RecordNetworkTransmissionRequestBody
-      authKey: sk
+      authKey: a
       response: RecordNetworkTransmissionResponse
     - name: ListMeterReadingPerSeason
       path: /ListMeterReadingPerSeason
       body: ListMeterReadingPerSeasonRequestBody
-      authKey: sk
+      authKey: a
       response: ListMeterReadingPerSeasonResponse
     - name: ListMeterReadingsPerDay
       path: /ListMeterReadingsPerDay
       body: ListMeterReadingsPerDayRequestBody
-      authKey: sk
+      authKey: a
       response: ListMeterReadingsPerDayResponse
     - name: ListMeterReadingsPerMonth
       path: /ListMeterReadingsPerMonth
       body: ListMeterReadingsPerMonthRequestBody
-      authKey: sk
+      authKey: a
       response: ListMeterReadingsPerMonthResponse
   outputClient: ./show/web/consumer/client
   outputHandler: ./show/web/consumer/handler

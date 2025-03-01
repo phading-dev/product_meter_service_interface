@@ -101,7 +101,7 @@ export let LIST_METER_READING_PER_SEASON: RemoteCallDescriptor = {
   body: {
     messageType: LIST_METER_READING_PER_SEASON_REQUEST_BODY,
   },
-  authKey: "sk",
+  authKey: "a",
   response: {
     messageType: LIST_METER_READING_PER_SEASON_RESPONSE,
   },
@@ -114,7 +114,7 @@ export let LIST_METER_READINGS_PER_DAY: RemoteCallDescriptor = {
   body: {
     messageType: LIST_METER_READINGS_PER_DAY_REQUEST_BODY,
   },
-  authKey: "sk",
+  authKey: "a",
   response: {
     messageType: LIST_METER_READINGS_PER_DAY_RESPONSE,
   },
@@ -127,7 +127,7 @@ export let LIST_METER_READINGS_PER_MONTH: RemoteCallDescriptor = {
   body: {
     messageType: LIST_METER_READINGS_PER_MONTH_REQUEST_BODY,
   },
-  authKey: "sk",
+  authKey: "a",
   response: {
     messageType: LIST_METER_READINGS_PER_MONTH_RESPONSE,
   },
