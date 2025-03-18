@@ -47,8 +47,8 @@
       isArray: true
       index: 1
 - kind: RemoteCallsGroup
-  name: ProductMeterShowWebPublisherRemoteCalls
-  service: ProductMeterWebService
+  name: MeterShowWebPublisherRemoteCalls
+  service: MeterWebService
   importService: ./service
   calls:
     - name: ListMeterReadingPerSeason

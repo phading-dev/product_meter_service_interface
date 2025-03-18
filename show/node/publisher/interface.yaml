@@ -116,8 +116,8 @@
 - kind: Message
   name: ProcessMonthlyMeterReadingResponse
 - kind: RemoteCallsGroup
-  name: ProductMeterShowNodePublisherRemoteCalls
-  service: ProductMeterNodeService
+  name: MeterShowNodePublisherRemoteCalls
+  service: MeterNodeService
   importService: ./service
   calls:
     - name: RecordUploaded

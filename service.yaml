@@ -1,6 +1,6 @@
 - kind: Service
-  name: ProductMeterNodeService
-  path: /pm/n
+  name: MeterNodeService
+  path: /m/n
 - kind: Service
-  name: ProductMeterWebService
-  path: /pm/w
+  name: MeterWebService
+  path: /m/w

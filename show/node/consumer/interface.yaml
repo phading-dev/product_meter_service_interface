@@ -47,8 +47,8 @@
 - kind: Message
   name: ProcessMonthlyMeterReadingResponse
 - kind: RemoteCallsGroup
-  name: ProductMeterShowNodeConsumerRemoteCalls
-  service: ProductMeterNodeService
+  name: MeterShowNodeConsumerRemoteCalls
+  service: MeterNodeService
   importService: ./service
   calls:
     - name: GetDailyBatch

@@ -1,5 +1,5 @@
 import { PrimitiveType, MessageDescriptor } from '@selfage/message/descriptor';
-import { PRODUCT_METER_NODE_SERVICE } from '../../../service';
+import { METER_NODE_SERVICE } from '../../../service';
 import { RemoteCallDescriptor } from '@selfage/service_descriptor';
 
 export interface RecordUploadedRequestBody {
@@ -261,7 +261,7 @@ export let PROCESS_MONTHLY_METER_READING_RESPONSE: MessageDescriptor<ProcessMont
 
 export let RECORD_UPLOADED: RemoteCallDescriptor = {
   name: "RecordUploaded",
-  service: PRODUCT_METER_NODE_SERVICE,
+  service: METER_NODE_SERVICE,
   path: "/RecordUploaded",
   body: {
     messageType: RECORD_UPLOADED_REQUEST_BODY,
@@ -273,7 +273,7 @@ export let RECORD_UPLOADED: RemoteCallDescriptor = {
 
 export let RECORD_STORAGE_START: RemoteCallDescriptor = {
   name: "RecordStorageStart",
-  service: PRODUCT_METER_NODE_SERVICE,
+  service: METER_NODE_SERVICE,
   path: "/RecordStorageStart",
   body: {
     messageType: RECORD_STORAGE_START_REQUEST_BODY,
@@ -285,7 +285,7 @@ export let RECORD_STORAGE_START: RemoteCallDescriptor = {
 
 export let RECORD_STORAGE_END: RemoteCallDescriptor = {
   name: "RecordStorageEnd",
-  service: PRODUCT_METER_NODE_SERVICE,
+  service: METER_NODE_SERVICE,
   path: "/RecordStorageEnd",
   body: {
     messageType: RECORD_STORAGE_END_REQUEST_BODY,
@@ -297,7 +297,7 @@ export let RECORD_STORAGE_END: RemoteCallDescriptor = {
 
 export let GET_DAILY_WATCH_BATCH: RemoteCallDescriptor = {
   name: "GetDailyWatchBatch",
-  service: PRODUCT_METER_NODE_SERVICE,
+  service: METER_NODE_SERVICE,
   path: "/GetDailyWatchBatch",
   body: {
     messageType: GET_DAILY_WATCH_BATCH_REQUEST_BODY,
@@ -309,7 +309,7 @@ export let GET_DAILY_WATCH_BATCH: RemoteCallDescriptor = {
 
 export let PROCESS_DAILY_WATCH_READING: RemoteCallDescriptor = {
   name: "ProcessDailyWatchReading",
-  service: PRODUCT_METER_NODE_SERVICE,
+  service: METER_NODE_SERVICE,
   path: "/ProcessDailyWatchReading",
   body: {
     messageType: PROCESS_DAILY_WATCH_READING_REQUEST_BODY,
@@ -321,7 +321,7 @@ export let PROCESS_DAILY_WATCH_READING: RemoteCallDescriptor = {
 
 export let GET_DAILY_STORAGE_BATCH: RemoteCallDescriptor = {
   name: "GetDailyStorageBatch",
-  service: PRODUCT_METER_NODE_SERVICE,
+  service: METER_NODE_SERVICE,
   path: "/GetDailyStorageBatch",
   body: {
     messageType: GET_DAILY_STORAGE_BATCH_REQUEST_BODY,
@@ -333,7 +333,7 @@ export let GET_DAILY_STORAGE_BATCH: RemoteCallDescriptor = {
 
 export let PROCESS_DAILY_STORAGE_READING: RemoteCallDescriptor = {
   name: "ProcessDailyStorageReading",
-  service: PRODUCT_METER_NODE_SERVICE,
+  service: METER_NODE_SERVICE,
   path: "/ProcessDailyStorageReading",
   body: {
     messageType: PROCESS_DAILY_STORAGE_READING_REQUEST_BODY,
@@ -345,7 +345,7 @@ export let PROCESS_DAILY_STORAGE_READING: RemoteCallDescriptor = {
 
 export let GET_MONTHLY_BATCH: RemoteCallDescriptor = {
   name: "GetMonthlyBatch",
-  service: PRODUCT_METER_NODE_SERVICE,
+  service: METER_NODE_SERVICE,
   path: "/GetMonthlyBatch",
   body: {
     messageType: GET_MONTHLY_BATCH_REQUEST_BODY,
@@ -357,7 +357,7 @@ export let GET_MONTHLY_BATCH: RemoteCallDescriptor = {
 
 export let PROCESS_MONTHLY_METER_READING: RemoteCallDescriptor = {
   name: "ProcessMonthlyMeterReading",
-  service: PRODUCT_METER_NODE_SERVICE,
+  service: METER_NODE_SERVICE,
   path: "/ProcessMonthlyMeterReading",
   body: {
     messageType: PROCESS_MONTHLY_METER_READING_REQUEST_BODY,
